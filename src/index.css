@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+
+#all li :hover {
+ background-color: green;
+}
