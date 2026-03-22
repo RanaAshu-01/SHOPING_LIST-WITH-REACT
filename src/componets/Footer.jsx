@@ -102,7 +102,7 @@ const Footer = () => {
             <div className=" flex justify-between gap-4 mb-10 mt-10">
 
                 <div className='flex items-center gap-4'>
-                    <Chromium size={50} strokeWidth={1.75} className="text-green-500" />
+                  <div className='text-2xl'>🛍️</div> 
                     <h2 className="text-3xl font-bold leading-tight">
                         <span className="text-5xl text-green-500">S</span>HOPPING <br />
                         <span className="text-4xl">List</span>

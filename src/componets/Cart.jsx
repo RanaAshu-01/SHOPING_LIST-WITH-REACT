@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import { Link } from "react-router-dom";
+import { AuthContext } from "./AuthContext";
 
 const CartPage = () => {
   const { cartItems, increaseQty, decreaseQty, removeItem } = useContext(CartContext);
+  const { user } = useContext(AuthContext)
 
   // Total amount calculate karte hain
   const totalAmount = cartItems.reduce(
@@ -83,12 +85,17 @@ const CartPage = () => {
               Total Amount: <span className="text-red-500">${totalAmount}</span>
             </p>
 
-            <Link
+            {!user ? (<Link
               to="/login"
               className="text-center px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg font-semibold transition"
             >
               Proceed to Checkout
-            </Link>
+            </Link>) : (<Link
+              to=""
+              className="text-center px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg font-semibold transition"
+            >
+              Proceed to Checkout
+            </Link>)}
           </div>
         </div>
       )}

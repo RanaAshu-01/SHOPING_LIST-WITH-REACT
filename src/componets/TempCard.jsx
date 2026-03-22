@@ -16,7 +16,6 @@ const Card = ({ id, image, title, price }) => {
         <button
           className="p-2 bg-amber-300 w-full text-center hover:bg-orange-400 cursor-pointer"
           onClick={() => {
-            console.log("ADD TO CART CLICKED", id);
             addToCart({ id, image, title, price });
           }}
         >

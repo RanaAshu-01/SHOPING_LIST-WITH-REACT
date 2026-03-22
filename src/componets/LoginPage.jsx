@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
 
@@ -8,6 +8,7 @@ const LoginPage = () => {
   const { setUser } = useContext(AuthContext);
 
   const [form, setForm] = useState({
+
     name: "",
     email: "",
     password: "",
@@ -27,6 +28,8 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    localStorage.setItem("user", form.name);
 
     if (!nameRegex.test(form.name)) {
       return setError("Name min 3 letters ka hona chahiye");
@@ -53,9 +56,12 @@ const LoginPage = () => {
     alert("Login Successful ✅");
 
 
-    setUser({ name: form.name });
+    setUser(form.name);
     navigate("/Cart");
   };
+
+ 
+
 
 
   return (

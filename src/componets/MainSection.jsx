@@ -1,7 +1,9 @@
 import Card from "./TempCard";
 import HeroSection from "./HeroSection";
 import Filter from "./Filter";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "./AuthContext";
+import { CartContext } from "./CartContext";
 
 const MainSection = ({ users, searchTerm }) => {
 
@@ -9,6 +11,9 @@ const MainSection = ({ users, searchTerm }) => {
   const [brands, setBrands] = useState([])
   const [priceRange, setsetPriceRange] = useState([])
   const [highAndLow, setHighAndLow] = useState("")
+  const { category } = useContext(CartContext)
+  console.log(category);
+
 
 
   const filteredUsers = users.filter((item) => {
@@ -32,7 +37,7 @@ const MainSection = ({ users, searchTerm }) => {
         if (range === "1000+") {
           return item.price > 1000;
         }
-
+        return false;
       });
 
     return matchBrands && matchSearch && matchPrice
@@ -46,6 +51,18 @@ const MainSection = ({ users, searchTerm }) => {
     finalData.sort((a, b) => a.price - b.price);
   } else if (highAndLow === "high") {
     finalData.sort((a, b) => b.price - a.price);
+  }
+
+
+
+  if (category === "Electronics") {
+    finalData = finalData.filter((item) => {
+      return item.category === "Electronics";
+    });
+  } else if (category === "Mobiles"){
+    finalData = finalData.filter((item) => {
+      return item.subCategory === "Mobiles"
+    })
   }
 
 
@@ -73,7 +90,7 @@ const MainSection = ({ users, searchTerm }) => {
           )}
         </div>
 
-        {/* Floating Filter Button */}
+
         <div className="fixed bottom-10  m-3 bg-green-500 p-3 rounded-full hover:bg-green-600 hover:scale-110 transition">
           <Filter setBrands={setBrands} setPriceRange={setsetPriceRange} setHighAndLow={setHighAndLow} highAndLow={highAndLow} />
         </div>

@@ -6,7 +6,9 @@ const users = [
     image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=880&auto=format&fit=crop",
     title: "iPhone 13",
     price: 699,
-    Brand: "Apple"
+    Brand: "Apple",
+    category: "Electronics",
+    subCategory: "Mobiles"
   },
 
   {
@@ -14,7 +16,9 @@ const users = [
     image: "https://images.unsplash.com/photo-1546054454-aa26e2b734c7?q=80&w=880&auto=format&fit=crop",
     title: "Redmi 7",
     price: 199,
-    Brand: "Redmi"
+    Brand: "Redmi",
+    category: "Electronics",
+    subCategory: "Mobiles"
   },
 
   {
@@ -22,7 +26,9 @@ const users = [
     image: "https://images.unsplash.com/photo-1533022139390-e31c488d69e2?q=80&w=1332&auto=format&fit=crop",
     title: "iPhone 13 Pro",
     price: 999,
-    Brand: "Apple"
+    Brand: "Apple",
+    category: "Electronics",
+    subCategory: "Mobiles"
   },
 
   {
@@ -30,7 +36,9 @@ const users = [
     image: "https://images.unsplash.com/photo-1691449808001-bb8c157f0094?q=80&w=715&auto=format&fit=crop",
     title: "Samsung Galaxy S24 Ultra",
     price: 1200,
-    Brand: "Samsung"
+    Brand: "Samsung",
+    category: "Electronics",
+    subCategory: "Mobiles"
   },
 
   {
@@ -38,14 +46,19 @@ const users = [
     image: "https://images.unsplash.com/photo-1721864428881-dbabb9ea0017?q=80&w=1074&auto=format&fit=crop",
     title: "Samsung Z Fold",
     price: 1500,
-    Brand: "Samsung"
+    Brand: "Samsung",
+    category: "Electronics",
+    subCategory: "Mobiles"
   },
   {
     id: 6,
     image: "https://images.unsplash.com/photo-1706300896423-7d08346e8dbb?q=80&w=735&auto=format&fit=crop",
     title: "Samsung Galaxy S24",
     price: 1100,
-    Brand: "Samsung"
+    Brand: "Samsung",
+    category: "Electronics",
+    subCategory: "Mobiles"
+
   },
 
   {
@@ -53,14 +66,19 @@ const users = [
     image: "https://images.unsplash.com/photo-1646861039459-fd9e3aabf3fb?q=80&w=1026&auto=format&fit=crop",
     title: "LED TV",
     price: 450,
-    Brand: "Samsung"
+    Brand: "Samsung",
+    category: "Electronics",
+    subCategory: "TV"
+
   },
 
   {
     id: 8,
     image: "https://images.unsplash.com/photo-1601944177325-f8867652837f?q=80&w=1177&auto=format&fit=crop",
     title: "Canon TV",
-    price: 500
+    price: 500,
+    category: "Electronics",
+    subCategory: "TV"
   },
 
   {
@@ -68,7 +86,9 @@ const users = [
     image: "https://images.unsplash.com/photo-1766503206606-27de0861e8a4?q=80&w=880&auto=format&fit=crop",
     title: "iPhone 17E",
     price: 1300,
-    Brand: "Apple"
+    Brand: "Apple",
+    category: "Electronics",
+    subCategory: "Mobiles"
   },
 
   {
@@ -76,14 +96,16 @@ const users = [
     image: "https://plus.unsplash.com/premium_photo-1667538960104-25726d82a6e5?q=80&w=1170&auto=format&fit=crop",
     title: "Sony 6 Pro",
     price: 850,
-    Brand: "Sony"
+    Brand: "Sony",
+    category: "Electronics",
   },
 
   {
     id: 11,
     image: "https://plus.unsplash.com/premium_photo-1703150072647-a888b485a107?q=80&w=1332&auto=format&fit=crop",
     title: "Canon Camera",
-    price: 600
+    price: 600,
+    category: "Electronics",
   },
 
   {
@@ -91,7 +113,8 @@ const users = [
     image: "https://plus.unsplash.com/premium_photo-1663134149019-284682ece04c?q=80&w=1170&auto=format&fit=crop",
     title: "Sony Camera",
     price: 650,
-    Brand: "Sony"
+    Brand: "Sony",
+    category: "Electronics",
   },
 
   {
@@ -99,7 +122,9 @@ const users = [
     image: "https://images.unsplash.com/photo-1620856902651-ce18d6d31d42?q=80&w=687&auto=format&fit=crop",
     title: "iPhone 7",
     price: 399,
-    Brand: "Apple"
+    Brand: "Apple",
+    category: "Electronics",
+    subCategory: "Mobiles"
   },
 
   {
@@ -113,39 +138,45 @@ const users = [
     image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?q=80&w=1074&auto=format&fit=crop",
     title: "Apple Charger",
     price: 25,
-    Brand: "Apple"
+    Brand: "Apple",
+    category: "Electronics",
   },
   {
     id: 16,
     image: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=1171&auto=format&fit=crop",
     title: "Washing Machine",
-    price: 300
+    price: 300,
+    category: "Electronics",
   },
   {
     id: 17,
     image: "https://images.unsplash.com/photo-1748698361079-fd70b999be1a?q=80&w=735&auto=format&fit=crop",
     title: "Philips Pods",
-    price: 60
+    price: 60,
+    category: "Electronics",
   },
   {
     id: 18,
     image: "https://images.unsplash.com/photo-1557063673-0493e05da49f?q=80&w=1176&auto=format&fit=crop",
     title: "Redmi Pods",
     price: 40,
-    Brand: "Redmi"
+    Brand: "Redmi",
+    category: "Electronics",
   },
   {
     id: 19,
     image: "https://images.unsplash.com/photo-1593433409228-4ebcf9e31556?q=80&w=2070&auto=format&fit=crop",
     title: "Nothing Earbuds",
-    price: 50
+    price: 50,
+    category: "Electronics",
   },
   {
     id: 20,
     image: "https://images.unsplash.com/photo-1511300961358-669ca3ad05af?q=80&w=687&auto=format&fit=crop",
     title: "Apple AirPods",
     price: 120,
-    Brand: "Apple"
+    Brand: "Apple",
+    category: "Electronics",
   },
 
 
@@ -153,40 +184,46 @@ const users = [
     id: 21,
     image: "https://images.unsplash.com/photo-1591012911207-57ece8b00441?q=80&w=880&auto=format&fit=crop",
     title: "Google Pixel 6",
-    price: 499
+    price: 499,
+    category: "Electronics",
   },
 
   {
     id: 22,
     image: "https://images.unsplash.com/photo-1611162617214-3d6b1c7f9085?q=80&w=880&auto=format&fit=crop",
     title: "OnePlus 10",
-    price: 699
+    price: 699,
+    category: "Electronics",
   },
 
   {
     id: 23,
     image: "https://images.unsplash.com/photo-1580910051078-0e9f1e115eac?q=80&w=880&auto=format&fit=crop",
     title: "iPad Air",
-    price: 599
+    price: 599,
+    category: "Electronics",
   },
   {
     id: 24,
     image: "https://images.unsplash.com/photo-1593642632559-0cddb254db4f?q=80&w=880&auto=format&fit=crop",
     title: "MacBook Air",
     price: 1099,
-    Brand: "Apple"
+    Brand: "Apple",
+    category: "Electronics",
   },
   {
     id: 25,
     image: "https://images.unsplash.com/photo-1548095115-45697e2f6de3?q=80&w=880&auto=format&fit=crop",
     title: "Dell XPS 13",
-    price: 999
+    price: 999,
+    category: "Electronics",
   },
   {
     id: 26,
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=880&auto=format&fit=crop",
     title: "HP Pavilion 15",
-    price: 750
+    price: 750,
+    category: "Electronics",
   },
 
   {
@@ -194,84 +231,97 @@ const users = [
     image: "https://images.unsplash.com/photo-1587202372775-8c36a4e0e3ce?q=80&w=880&auto=format&fit=crop",
     title: "Samsung Galaxy Book",
     price: 850,
-    Brand: "Samsung"
+    Brand: "Samsung",
+    category: "Electronics",
   },
   {
     id: 28,
     image: "https://images.unsplash.com/photo-1581091215367-e4fa74b69054?q=80&w=880&auto=format&fit=crop",
     title: "Lenovo ThinkPad",
-    price: 920
+    price: 920,
+    category: "Electronics",
   },
   {
     id: 29,
     image: "https://images.unsplash.com/photo-1580912392350-1219ed05706b?q=80&w=880&auto=format&fit=crop",
     title: "Asus ROG Laptop",
-    price: 1199
+    price: 1199,
+    category: "Electronics",
   },
   {
     id: 30, image: "https://images.unsplash.com/photo-1588237692765-24e98694f198?q=80&w=880&auto=format&fit=crop",
     title: "Sony Headphones",
     price: 150,
-    Brand: "Sony"
+    Brand: "Sony",
+    category: "Electronics",
   },
   {
     id: 31,
     image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=880&auto=format&fit=crop",
     title: "Bose SoundLink",
-    price: 220
+    price: 220,
+    category: "Electronics",
   },
 
   {
     id: 32,
     image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=880&auto=format&fit=crop",
     title: "Nintendo Switch",
-    price: 299
+    price: 299,
+    category: "Electronics",
   },
 
   {
     id: 33,
     image: "https://images.unsplash.com/photo-1580657019374-7f3dc45e4c96?q=80&w=880&auto=format&fit=crop",
     title: "PlayStation 5",
-    price: 499
+    price: 499,
+    category: "Electronics",
   },
   {
     id: 34,
     image: "https://images.unsplash.com/photo-1610465290387-8a4c46bb28af?q=80&w=880&auto=format&fit=crop",
     title: "Xbox Series X",
-    price: 499
+    price: 499,
+    category: "Electronics",
   },
   {
     id: 35,
     image: "https://images.unsplash.com/photo-1581276879432-15f27ea2dcf5?q=80&w=880&auto=format&fit=crop",
     title: "Apple Watch",
     price: 329,
-    Brand: "Apple"
+    Brand: "Apple",
+    category: "Electronics",
   },
   {
     id: 36,
     image: "https://images.unsplash.com/photo-1606813903122-d6c3c6e79d54?q=80&w=880&auto=format&fit=crop",
     title: "Fitbit Charge 5",
-    price: 149
+    price: 149,
+    category: "Electronics",
   },
   {
     id: 37,
     image: "https://images.unsplash.com/photo-1580894908361-d4a25f69b7c8?q=80&w=880&auto=format&fit=crop",
     title: "DJI Drone",
-    price: 799
+    price: 799,
+    category: "Electronics",
   },
 
   {
     id: 38,
     image: "https://images.unsplash.com/photo-1581091122425-3e8bd92a0e5b?q=80&w=880&auto=format&fit=crop",
     title: "GoPro Hero",
-    price: 399
+    price: 399,
+    category: "Electronics",
   },
 
   {
     id: 39,
     image: "https://images.unsplash.com/photo-1585386959984-a4155220eb49?q=80&w=880&auto=format&fit=crop",
     title: "Kindle Paperwhite",
-    price: 140
+    price: 140,
+    category: "Electronics",
   },
 
   {
@@ -279,7 +329,8 @@ const users = [
     image: "https://images.unsplash.com/photo-1560785496-aeceb8ea83d6?q=80&w=880&auto=format&fit=crop",
     title: "Apple TV",
     price: 179,
-    Brand: "Apple"
+    Brand: "Apple",
+    category: "Electronics",
 
   },
 
@@ -288,26 +339,30 @@ const users = [
     id: 41,
     image: "https://images.unsplash.com/photo-1560923385-9e584369a610?q=80&w=880&auto=format&fit=crop",
     title: "Google Nest",
-    price: 129
+    price: 129,
+    category: "Electronics",
   },
   {
     id: 42,
     image: "https://images.unsplash.com/photo-1605733165219-c2f46d307b41?q=80&w=880&auto=format&fit=crop",
     title: "Echo Dot",
-    price: 49
+    price: 49,
+    category: "Electronics",
   },
   {
     id: 43,
     image: "https://images.unsplash.com/photo-1555617117-08fda4d1b633?q=80&w=880&auto=format&fit=crop",
     title: "Apple Keyboard",
     price: 99,
-    Brand: "Apple"
+    Brand: "Apple",
+    category: "Electronics",
   },
   {
     id: 44,
     image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=880&auto=format&fit=crop",
     title: "Wireless Mouse",
-    price: 39
+    price: 39,
+    category: "Electronics",
   },
   {
     id: 45,
@@ -315,7 +370,7 @@ const users = [
     title: "Gaming Chair",
     price: 299
   },
-  
+
   { id: 46, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=880&auto=format&fit=crop", title: "4K Monitor", price: 349 },
   { id: 47, image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=880&auto=format&fit=crop", title: "Mechanical Keyboard", price: 89 },
   { id: 48, image: "https://images.unsplash.com/photo-1491933382344-1cba3da4cfcd?q=80&w=880&auto=format&fit=crop", title: "USB-C Hub", price: 59 },

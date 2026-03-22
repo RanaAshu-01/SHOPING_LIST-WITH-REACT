@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect,useContext } from "react";
 import Navbar from "./componets/Navbar";
 import MainSection from "./componets/MainSection";
 import LoginPage from "./componets/LoginPage";
@@ -23,20 +23,35 @@ import TermsOfService from "./componets/TermsOfService";
 import PrivacyPolicy from "./componets/PrivacyPolicy";
 import CookiePolicy from "./componets/CookiePolicy";
 import Licenses from "./componets/Licence";
-import { AuthProvider } from "./componets/AuthContext";
+import { AuthContext } from "./componets/AuthContext";
+import ScrollToTop from "./componets/ScrollToTop";
+
+
+
 
 
 const App = () => {
+  const { setUser } = useContext(AuthContext);
   const [searchTerm, setSearchTerm] = useState("");
+
+
+   useEffect(() => {
+    const name = localStorage.getItem("user");
+    
+    if (name) {
+      setUser(name);
+    }
+  }, [])
  
 
   return (
     <>
-      <AuthProvider>
+      
 
 
         <CartProvider >
           <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+           <ScrollToTop />
 
           <Routes>
             <Route path="/" element={<MainSection users={users} searchTerm={searchTerm} />} />
@@ -63,7 +78,6 @@ const App = () => {
           <Footer />
 
         </CartProvider>
-      </AuthProvider>
     </>
   );
 };
