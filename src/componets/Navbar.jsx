@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { MapPin, CircleUser, Flame, ShoppingCart, House } from 'lucide-react';
 
 const Navbar = () => {
 
- 
-  const {searchTerm, setSearchTerm, cartItems, category, setCategory, setShowPopUp, setLoader, handleLogout, showData, user } = useContext(CartContext);
+
+  const { searchTerm, setSearchTerm, cartItems, category, setCategory, setShowPopUp, setLoader, handleLogout, showData, user } = useContext(CartContext);
 
   const showPopUp = () => {
     setShowPopUp(true)
@@ -130,7 +130,7 @@ const Navbar = () => {
 
 
           {/* Cart */}
-          <Link to="/cart" className="hidden sm:block relative group">
+          <Link to="/cart" className="hidden xl:block relative group">
             <ShoppingCart className="group-hover:scale-110 transition" />
             <span className="absolute -top-2 -right-2 bg-red-500 text-xs px-1.5 py-px rounded-full">
               {cartItems.length}
@@ -201,10 +201,15 @@ const Navbar = () => {
       <div className="fixed bottom-0 left-0 w-full bg-gray-100  flex justify-around items-center py-2 xl:hidden z-50">
 
         {/* Home */}
-        <Link to="/" className="flex flex-col items-center text-xs">
+        <NavLink
+          to="/"
+          className={({isActive}) => 
+          isActive ? "flex flex-col items-center text-xs text-blue-800 cursor-pointer" : "cursor-pointer flex flex-col items-center text-xs"
+          }
+        >
           <House />
           <span>Home</span>
-        </Link>
+        </NavLink>
 
         {/* Deals */}
         <div className="flex flex-col items-center text-xs cursor-pointer">
@@ -212,22 +217,30 @@ const Navbar = () => {
           <span>Deals</span>
         </div>
 
-        <div className="flex flex-col items-center  text-xs">
+        <NavLink
+          to="Accounts"
+         className={({isActive}) => 
+          isActive ? "flex flex-col items-center text-xs text-blue-800 cursor-pointer" : "cursor-pointer flex flex-col items-center text-xs"
+          }>
           <CircleUser size={18} />
-          <Link
-            to="Accounts"
-            className="text-black"
+          <div
             onClick={handleLogout}
           >Account
-          </Link>
-        </div>
+          </div>
+        </NavLink>
 
-        <Link to="/cart" className="flex flex-col items-center text-xs relative">
+        <NavLink
+         to="/cart" 
+         className={({isActive}) => 
+          isActive ? "flex flex-col items-center text-xs text-blue-800 relative" : "cursor-pointer flex flex-col items-center text-xs relative"
+          }
+        
+         >
           <ShoppingCart className="group-hover:scale-110 transition" />
           <span className="absolute text-white -top-1 -right-2 bg-red-500 text-[10px] px-1 rounded-full">
             {cartItems.length}
           </span>
-        </Link>
+        </NavLink>
 
 
 

@@ -31,7 +31,6 @@ const CartProvider = ({ children }) => {
           const data = await res.json();
 
           if (data.results.length > 0) {
-            console.log(data);
 
             const finalData = [
               data.results[0].components.suburb,
@@ -81,13 +80,15 @@ const CartProvider = ({ children }) => {
   }, [cartItems]);
 
   const addToCart = (product) => {
+    if (!product || !product.id) return; // 🛑 safety check
+
     setCartItems((prev) => {
       const existing = prev.find((item) => item.id === product.id);
 
       if (existing) {
         return prev.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: (item.quantity || 1) + 1 }
             : item
         );
       }

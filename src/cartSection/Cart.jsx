@@ -7,20 +7,23 @@ import emptyCartAnimation from "../assets/animations/empty.json";
 
 
 const CartPage = () => {
-  const { cartItems, increaseQty, decreaseQty, removeItem } = useContext(CartContext);
- 
+  const { cartItems, increaseQty, decreaseQty, removeItem, user } = useContext(CartContext);
+
 
   const totalAmount = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   );
 
+
+
+
   return (
     <div className="min-h-screen p-6 bg-gray-100">
       {cartItems.length === 0 ? (
         <div className="flex flex-col items-center justify-center mt-20">
           <div className="w-full h-64 flex flex-col items-center justify-center">
-           
+
             <Lottie animationData={emptyCartAnimation} loop={true} className="w-48 h-48 sm:w-80 sm:h-80" />
             <p className="text-lg font-semibold mt-4 text-gray-700">
               🛒 Your cart is empty!
@@ -36,52 +39,62 @@ const CartPage = () => {
       ) : (
         <div className="flex flex-wrap justify-center gap-6">
           {/* Cart items */}
-          {cartItems.map((item) => (
-            <div
-              key={item.id}
-              className="flex flex-col m-4 p-4 rounded-2xl bg-white shadow-lg w-60 hover:scale-105 transition-transform"
-            >
-              {/* Image */}
-              <div className="w-full h-40 overflow-hidden rounded-2xl mb-3">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+          {cartItems.map((item, index) => {
+            if (!item) return null;
 
-              {/* Title & Price */}
-              <div className="text-center mb-3">
-                <h4 className="font-semibold text-lg text-gray-800 truncate">{item.title}</h4>
-                <p className="text-red-500 font-bold text-lg mt-1">$ {item.price}</p>
-              </div>
-
-              {/* Quantity controls */}
-              <div className="flex items-center justify-between w-32 mx-auto mb-3">
-                <button
-                  className="w-8 h-8 bg-red-500 text-white rounded flex items-center justify-center font-bold hover:bg-red-600 transition"
-                  onClick={() => decreaseQty(item.id)}
-                >
-                  −
-                </button>
-                <span className="font-semibold text-lg">{item.quantity}</span>
-                <button
-                  className="w-8 h-8 bg-green-500 text-white rounded flex items-center justify-center font-bold hover:bg-green-600 transition"
-                  onClick={() => increaseQty(item.id)}
-                >
-                  +
-                </button>
-              </div>
-
-              {/* Remove button */}
-              <button
-                onClick={() => removeItem(item.id)}
-                className="w-full py-2 bg-gray-200 hover:bg-red-500 hover:text-white text-gray-700 font-semibold rounded-lg transition"
+            return (
+              <div
+                key={item?.id || index}
+                className="flex flex-col m-4 p-4 rounded-2xl bg-white shadow-lg w-60 hover:scale-101 transition-transform"
               >
-                Remove
-              </button>
-            </div>
-          ))}
+                <div className="w-full h-40 overflow-hidden rounded-2xl mb-3">
+                  <img
+                    src={item?.image}
+                    alt={item?.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                <div className="text-center mb-3">
+                  <h4 className="font-semibold text-lg text-gray-800 truncate">
+                    {item?.title}
+                  </h4>
+                  <p className="text-red-500 font-bold text-lg mt-1">
+                    $ {item?.price || 0}
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-between w-36 mx-auto mb-4 bg-gray-100 rounded-full px-3 py-1 shadow-sm">
+                  <button
+                    onClick={() => decreaseQty(item?.id)}
+                    className="w-8 h-8 flex items-center justify-center rounded-full bg-white shadow hover:bg-red-100 text-lg font-bold transition"
+                  >
+                    −
+                  </button>
+
+                  <span className="text-base font-semibold text-gray-800">
+                    {item?.quantity || 1}
+                  </span>
+
+                  <button
+                    onClick={() => increaseQty(item?.id)}
+                    className="w-8 h-8 flex items-center justify-center rounded-full bg-white shadow hover:bg-green-100 text-lg font-bold transition"
+                  >
+                    +
+                  </button>
+                </div>
+
+                <button
+                  onClick={() => removeItem(item?.id)}
+                  className="mt-2 px-4 py-2 bg-red-500 text-white rounded-lg font-semibold hover:bg-red-600 transition shadow-md"
+                >
+                  Remove
+                </button>
+
+              </div>
+            );
+          })}
+
 
           {/* Summary + Checkout */}
           <div className="flex flex-col justify-between p-6 rounded-2xl bg-white shadow-lg w-72 h-fit">
