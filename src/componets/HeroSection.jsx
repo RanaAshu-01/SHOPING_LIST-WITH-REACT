@@ -20,7 +20,7 @@ const {searchTerm} = useContext(CartContext)
               md:h-80  object-[center_40%]
               object-cover
             "
-            src="public\hero.mp4"   // 👉 yaha apni video daal
+            src="/hero.mp4"   // 👉 yaha apni video daal
             autoPlay
             loop
             muted
