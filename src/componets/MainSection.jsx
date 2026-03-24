@@ -2,17 +2,16 @@ import Card from "./TempCard";
 import HeroSection from "./HeroSection";
 import Filter from "./Filter";
 import { useContext, useState } from "react";
-import { AuthContext } from "./AuthContext";
-import { CartContext } from "./CartContext";
+import { CartContext } from "../context/CartContext";
 
-const MainSection = ({ users, searchTerm }) => {
+
+const MainSection = () => {
 
 
   const [brands, setBrands] = useState([])
   const [priceRange, setsetPriceRange] = useState([])
   const [highAndLow, setHighAndLow] = useState("")
-  const { category } = useContext(CartContext)
-  console.log(category);
+  const { category, searchTerm, users } = useContext(CartContext)
 
 
 
@@ -20,6 +19,7 @@ const MainSection = ({ users, searchTerm }) => {
 
     let matchSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase().trim())
     let matchBrands = brands.length === 0 || brands.includes(item.Brand);
+
 
     const matchPrice =
       priceRange.length === 0 ||
@@ -55,24 +55,22 @@ const MainSection = ({ users, searchTerm }) => {
 
 
 
-  if (category === "Electronics") {
+  if (category !== "All") {
     finalData = finalData.filter((item) => {
-      return item.category === "Electronics";
+      return item.category === category || item.subCategory === category;
     });
-  } else if (category === "Mobiles"){
-    finalData = finalData.filter((item) => {
-      return item.subCategory === "Mobiles"
-    })
   }
 
 
 
-  return (
-    <div>
-      <HeroSection searchTerm={searchTerm} />
 
-      <div className="relative">
-        <div className="flex flex-wrap justify-center">
+
+  return (
+    <div >
+      <HeroSection/>
+
+      <div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mx-2 p-4">
           {finalData.length > 0 ? (
             finalData.map((elem) => (
               <Card
@@ -91,8 +89,8 @@ const MainSection = ({ users, searchTerm }) => {
         </div>
 
 
-        <div className="fixed bottom-10  m-3 bg-green-500 p-3 rounded-full hover:bg-green-600 hover:scale-110 transition">
-          <Filter setBrands={setBrands} setPriceRange={setsetPriceRange} setHighAndLow={setHighAndLow} highAndLow={highAndLow} />
+        <div className="fixed bottom-12  m-3 bg-yellow-500 p-3 rounded-full hover:bg-yellow-600 hover:scale-110 transition">
+          <Filter setBrands={setBrands} brands={brands} setPriceRange={setsetPriceRange} setHighAndLow={setHighAndLow} highAndLow={highAndLow} priceRange={priceRange} />
         </div>
       </div>
     </div>

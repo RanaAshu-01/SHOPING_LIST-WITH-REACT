@@ -1,124 +1,240 @@
-import { ShoppingCart, Chromium, LogIn, Search } from "lucide-react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "./AuthContext";
-import { useState, useContext } from "react";
-import { CartContext } from "./CartContext";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import { MapPin, CircleUser, Flame, ShoppingCart, House } from 'lucide-react';
 
-const Navbar = ({ searchTerm, setSearchTerm }) => {
+const Navbar = () => {
 
-  const { user, setUser } = useContext(AuthContext);
-  const { cartItems, setCartItems, category, setCategory } = useContext(CartContext);
  
-  
+  const {searchTerm, setSearchTerm, cartItems, category, setCategory, setShowPopUp, setLoader, handleLogout, showData, user } = useContext(CartContext);
 
-  
-
-  const handleLogout = () => {
-    setUser(null)
-    localStorage.removeItem("user")
-    setCartItems([])
+  const showPopUp = () => {
+    setShowPopUp(true)
   }
 
   return (
-    <nav className="bg-black text-white sticky top-0 z-50">
+    <>
+      <nav className="bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 text-white sticky top-0 z-50 shadow-lg">
 
-      {/* Top */}
-      <div className="flex items-center justify-between gap-3 px-3 py-2">
 
-        {/* Logo */}
-        <Link to="/" className="text-lg font-bold whitespace-nowrap">
-          🛍️ Shop
-        </Link>
+        {/* Top */}
+        <div className="flex flex-wrap items-center justify-between gap-3 px-2 py-2">
 
-        {/* Search */}
-        <div
-          className="flex flex-1  max-w-7xl text-center mx-2 bg-white rounded-md overflow-hidden h-10">
-          {/* Category */}
-          <select
-            className=" text-black text-xs px-2  bg-gray-200 outline-none"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
+
+          {/* Logo */}
+          <Link
+            to="/"
+            className="text-xl font-bold tracking-wide rounded transition hover:border p-3 py-1.5"
           >
-            <option value="All">All</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Fashion">Fashion</option>
-            <option value="Mobiles">Mobiles</option>
-            <option value="Laptops">Laptops</option>
-            <option value="Books">Books</option>
-          </select>
+            🛍️ ShopZone
+          </Link>
 
-          {/* Input */}
-          <input
-            type="text"
-            placeholder="Search products..."
-            className="flex-1 text-black px-3 text-sm outline-none"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+          {/* Mobile Welcome Text */}
+          <div className="sm:hidden text-[10px] text-gray-300 leading-tight text-right ml-auto">
+            <p>Welcome to ShopZone</p>
+            <p className="text-yellow-400 cursor-pointer">Download App</p>
+          </div>
 
-          {/* Button */}
-          <button className="bg-yellow-400 px-3 flex items-center justify-center">
-            🔍
-          </button>
+
+          {/* Search */}
+          <div className="order-3 w-full sm:order-0 sm:w-auto sm:flex-1 max-w-4xl mx-2 bg-white rounded-lg overflow-hidden h-9 sm:h-10 shadow-md flex items-center">
+
+
+
+
+            {/* Category */}
+            <select
+              className="hidden sm:block text-black text-xs px-2 bg-gray-100 p-3 outline-none cursor-pointer"
+
+              value={category}
+              onChange={(e) => {
+                const value = e.target.value;
+                setLoader(true);
+                setTimeout(() => {
+                  setCategory(value);
+                  setLoader(false);
+                }, 500);
+              }}
+            >
+              <option value="All">All</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Fashion">Fashion</option>
+              <option value="Mobiles">Mobiles</option>
+              <option value="Laptops">Laptops</option>
+              <option value="Books">Books</option>
+            </select>
+
+            {/* Input */}
+            <input
+              type="text"
+              placeholder="Search for products, brands and more..."
+              className="flex-1 text-black px-2 sm:px-3 text-xs sm:text-sm outline-none"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+
+            {/* Button */}
+            <button className="bg-yellow-400 px-3 sm:px-4 h-full flex items-center justify-center">
+              🔍
+            </button>
+
+          </div>
+
+
+          <div className="hidden xl:flex flex-col text-xs leading-tight cursor-pointer hover:border p-1 rounded">
+            <span className="text-gray-300">Hello, {user?.name || "Guest"}</span>
+            <span className="font-semibold">Account & Lists</span>
+          </div>
+
+
+          {/* 📍 Location Row */}
+          <div className="order-4 w-full xl:order-0 xl:w-auto px-3">
+            <div className="hover:border rounded px-3 w-full sm:w-auto">
+
+              <div className="flex gap-3 xl:gap-0 xl:flex-col">
+
+                {/* Deliver to */}
+                <p className="flex items-center gap-1 text-sm md:text-xs text-gray-400 whitespace-nowrap">
+                  <MapPin size={16} className="text-red-400" />
+                  Deliver to
+                </p>
+
+                {/* Location */}
+                <p className="text-sm sm:text-base font-semibold text-white truncate">
+                  {showData || "Detecting location..."}
+                </p>
+
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <div className="hidden xl:block text-xs bg-linear-to-r from-yellow-400 to-orange-400 text-black px-3 py-2 rounded-md font-semibold cursor-pointer hover:scale-105 transition"
+          >
+            🔥 Deals
+          </div>
+
+
+          {/* Language */}
+          <div className="hidden xl:flex items-center gap-1 cursor-pointer rounded hover:border p-1 transition">
+            🌐
+            <select className="bg-transparent text-white text-xs outline-none cursor-pointer">
+              <option className="text-black">EN</option>
+              <option className="text-black">HI</option>
+            </select>
+          </div>
+
+
+
+
+          {/* Cart */}
+          <Link to="/cart" className="hidden sm:block relative group">
+            <ShoppingCart className="group-hover:scale-110 transition" />
+            <span className="absolute -top-2 -right-2 bg-red-500 text-xs px-1.5 py-px rounded-full">
+              {cartItems.length}
+            </span>
+          </Link>
+
+
+          <div className="hidden xl:flex items-center justify-between px-3 pb-2 border-t border-gray-800">
+
+
+            {/* Greeting */}
+
+
+            {/* Actions */}
+            <div className="flex items-center gap-3">
+
+              {!user ? (
+                <Link
+                  to="/login"
+                  className="
+            text-xs sm:text-sm 
+            bg-yellow-400 
+            text-black 
+            px-4 py-1.5 
+            rounded-md 
+            font-medium
+            hover:bg-yellow-500 
+            active:scale-95 
+            transition
+            shadow
+          "
+                >
+                  Log-In
+                </Link>
+              ) : (
+                <button
+                  onClick={showPopUp}
+                  className="
+            text-xs sm:text-sm 
+            bg-red-500 
+            text-white 
+            px-4 py-1.5 
+            rounded-md 
+            font-medium
+            hover:bg-red-600 
+            active:scale-95 
+            transition
+            shadow
+          "
+                >
+                  Log-Out
+                </button>
+              )}
+
+            </div>
+          </div>
+
         </div>
 
 
-        {/* Cart */}
-        <Link to="/cart" className="relative">
-          <ShoppingCart />
-          <span className="absolute -top-2 -right-2 bg-red-500 text-xs px-1 rounded-full">
+
+
+
+
+      </nav>
+
+
+      <div className="fixed bottom-0 left-0 w-full bg-gray-100  flex justify-around items-center py-2 xl:hidden z-50">
+
+        {/* Home */}
+        <Link to="/" className="flex flex-col items-center text-xs">
+          <House />
+          <span>Home</span>
+        </Link>
+
+        {/* Deals */}
+        <div className="flex flex-col items-center text-xs cursor-pointer">
+          <Flame />
+          <span>Deals</span>
+        </div>
+
+        <div className="flex flex-col items-center  text-xs">
+          <CircleUser size={18} />
+          <Link
+            to="Accounts"
+            className="text-black"
+            onClick={handleLogout}
+          >Account
+          </Link>
+        </div>
+
+        <Link to="/cart" className="flex flex-col items-center text-xs relative">
+          <ShoppingCart className="group-hover:scale-110 transition" />
+          <span className="absolute text-white -top-1 -right-2 bg-red-500 text-[10px] px-1 rounded-full">
             {cartItems.length}
           </span>
         </Link>
-      </div>
-
-      {/* Bottom row (mobile feel) */}
-      <div className="flex items-center justify-between px-3 pb-2">
-
-        {/* Left - Greeting */}
-        <span className="text-xs sm:text-sm text-gray-300">
-          Hello, <span className="font-semibold text-white">{user || "Guest"}</span>
-        </span>
 
 
-        {!user ? (<Link
-          to="/login"
-          className="
-        text-xs sm:text-sm 
-        bg-yellow-400 
-        text-black 
-        px-3 py-1 
-        rounded-md 
-        font-medium
-        hover:bg-yellow-500 
-        active:scale-95 
-        transition
-    "
-        >
-          Login
-        </Link>) : (
-          <button
-            onClick={handleLogout}
-            className="
-        text-xs sm:text-sm 
-        bg-red-500 
-        text-white 
-        px-3 py-1 
-        rounded-md 
-        font-medium
-        hover:bg-red-600 
-        active:scale-95 
-        transition
-    "
-          >
-            Log-Out
-
-          </button>
-        )}
 
       </div>
 
-    </nav>
+    </>
+
   );
 };
 

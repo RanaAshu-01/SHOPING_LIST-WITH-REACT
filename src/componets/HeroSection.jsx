@@ -1,37 +1,47 @@
-const HeroSection = ({ searchTerm }) => {
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+
+
+const HeroSection = () => {
+
+const {searchTerm} = useContext(CartContext)
+
   return (
     <>
       {!searchTerm?.trim() && (
         <div className="relative w-full">
 
-          {/* Image */}
-          <img
-            src="https://images-eu.ssl-images-amazon.com/images/G/31/INSLGW/af_pc_2x._CB792409181_.jpg"
-            alt="hero"
+          {/* Video */}
+          <video
             className="
               w-full 
-              h-45 
+              h-55 
               sm:h-62.5 
-              md:h-80 
+              md:h-80  object-[center_40%]
               object-cover
             "
+            src="public\hero.mp4"   // 👉 yaha apni video daal
+            autoPlay
+            loop
+            muted
+            playsInline
           />
 
           {/* Gradient overlay */}
           <div className="
             absolute inset-0 
             bg-linear-to-t 
-            from-gray-100 
+            from-black/60 
             via-transparent 
             to-transparent
           "></div>
 
-          {/* Text (optional but 🔥) */}
+          {/* Text */}
           <div className="
             absolute 
             bottom-3 
             left-3 
-            text-gray-400
+            text-white
           ">
             <h2 className="text-sm sm:text-lg font-semibold">
               Big Deals Today

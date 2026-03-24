@@ -224,6 +224,7 @@ const users = [
     title: "HP Pavilion 15",
     price: 750,
     category: "Electronics",
+    subCategory: "Laptops"
   },
 
   {
@@ -295,10 +296,10 @@ const users = [
   },
   {
     id: 36,
-    image: "https://images.unsplash.com/photo-1606813903122-d6c3c6e79d54?q=80&w=880&auto=format&fit=crop",
-    title: "Fitbit Charge 5",
-    price: 149,
-    category: "Electronics",
+    image: "https://plus.unsplash.com/premium_photo-1664006988924-16f386bcd40e?q=80&w=1073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Albert inien",
+    price: 8,
+    category: "Books",
   },
   {
     id: 37,
@@ -371,67 +372,348 @@ const users = [
     price: 299
   },
 
-  { id: 46, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=880&auto=format&fit=crop", title: "4K Monitor", price: 349 },
-  { id: 47, image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=880&auto=format&fit=crop", title: "Mechanical Keyboard", price: 89 },
-  { id: 48, image: "https://images.unsplash.com/photo-1491933382344-1cba3da4cfcd?q=80&w=880&auto=format&fit=crop", title: "USB-C Hub", price: 59 },
-  { id: 49, image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=880&auto=format&fit=crop", title: "Smart Thermostat", price: 199 },
-  { id: 50, image: "https://images.unsplash.com/photo-1483721310020-03333e577078?q=80&w=880&auto=format&fit=crop", title: "Bluetooth Speaker", price: 129 },
+  {
+    id: 46,
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=880&auto=format&fit=crop",
+    title: "4K Monitor",
+    price: 349
+  },
+  {
+    id: 47,
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=880&auto=format&fit=crop",
+    title: "Mechanical Keyboard",
+    price: 89
+  },
 
-  { id: 51, image: "https://images.unsplash.com/photo-1536305030632-330c7d0f3355?q=80&w=880&auto=format&fit=crop", title: "Action Camera", price: 299 },
-  { id: 52, image: "https://images.unsplash.com/photo-1591596601667-e40a21e9a84f?q=80&w=880&auto=format&fit=crop", title: "Portable Projector", price: 419 },
-  { id: 53, image: "https://images.unsplash.com/photo-1472417583565-62e7bdeda490?q=80&w=880&auto=format&fit=crop", title: "Smart Scale", price: 59 },
-  { id: 54, image: "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=880&auto=format&fit=crop", title: "VR Headset", price: 399 },
-  { id: 55, image: "https://images.unsplash.com/photo-1587486913044-86f84fbb4f88?q=80&w=880&auto=format&fit=crop", title: "Wireless Charger", price: 49 },
-  { id: 56, image: "https://images.unsplash.com/photo-1512499617640-c2f999098d74?q=80&w=880&auto=format&fit=crop", title: "Portable SSD", price: 129 },
-  { id: 57, image: "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?q=80&w=880&auto=format&fit=crop", title: "External Hard Drive", price: 89 },
-  { id: 58, image: "https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=880&auto=format&fit=crop", title: "Memory Card 128GB", price: 29 },
-  { id: 59, image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=880&auto=format&fit=crop", title: "Gaming Headset", price: 79 },
-  { id: 60, image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=880&auto=format&fit=crop", title: "VR Controller", price: 69 },
+  {
+    id: 48,
+    image: "https://images.unsplash.com/photo-1491933382344-1cba3da4cfcd?q=80&w=880&auto=format&fit=crop",
+    title: "USB-C Hub",
+    price: 59
+  },
+  {
+    id: 49,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=880&auto=format&fit=crop",
+    title: "Smart Thermostat",
+    price: 199
+  },
+  {
+    id: 50,
+    image: "https://images.unsplash.com/photo-1483721310020-03333e577078?q=80&w=880&auto=format&fit=crop",
+    title: "Bluetooth Speaker",
+    price: 129
+  },
 
-  { id: 61, image: "https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?q=80&w=880&auto=format&fit=crop", title: "Laptop Backpack", price: 49 },
-  { id: 62, image: "https://images.unsplash.com/photo-1555617117-1f93e00afc43?q=80&w=880&auto=format&fit=crop", title: "Smart Light Bulb", price: 24 },
-  { id: 63, image: "https://images.unsplash.com/photo-1560184897-b262818eb9aa?q=80&w=880&auto=format&fit=crop", title: "Electric Kettle", price: 39 },
-  { id: 64, image: "https://images.unsplash.com/photo-1589927986089-35812388d1f4?q=80&w=880&auto=format&fit=crop", title: "Blender", price: 59 },
-  { id: 65, image: "https://images.unsplash.com/photo-1512427691650-dc5a5b8d2bc5?q=80&w=880&auto=format&fit=crop", title: "Air Fryer", price: 89 },
-  { id: 66, image: "https://images.unsplash.com/photo-1562007900-dc3cdb15bb1b?q=80&w=880&auto=format&fit=crop", title: "Rice Cooker", price: 49 },
-  { id: 67, image: "https://images.unsplash.com/photo-1540574163026-643ea20ade25?q=80&w=880&auto=format&fit=crop", title: "Microwave Oven", price: 99 },
-  { id: 68, image: "https://images.unsplash.com/photo-1496284045406-d3e0b918d4bd?q=80&w=880&auto=format&fit=crop", title: "Toaster", price: 29 },
-  { id: 69, image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?q=80&w=880&auto=format&fit=crop", title: "Electric Fan", price: 39 },
-  { id: 70, image: "https://images.unsplash.com/photo-1465101162946-4377e57745c3?q=80&w=880&auto=format&fit=crop", title: "Heater", price: 59 },
+  {
+    id: 51,
+    image: "https://images.unsplash.com/photo-1536305030632-330c7d0f3355?q=80&w=880&auto=format&fit=crop",
+    title: "Action Camera",
+    price: 299
+  },
+  {
+    id: 52,
+    image: "https://images.unsplash.com/photo-1591596601667-e40a21e9a84f?q=80&w=880&auto=format&fit=crop",
+    title: "Portable Projector",
+    price: 419
+  },
+  {
+    id: 53,
+    image: "https://images.unsplash.com/photo-1472417583565-62e7bdeda490?q=80&w=880&auto=format&fit=crop",
+    title: "Smart Scale",
+    price: 59
+  },
+  {
+    id: 54,
+    image: "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=880&auto=format&fit=crop",
+    title: "VR Headset",
+    price: 399
+  },
+  {
+    id: 55,
+    image: "https://images.unsplash.com/photo-1587486913044-86f84fbb4f88?q=80&w=880&auto=format&fit=crop",
+    title: "Wireless Charger",
+    price: 49
+  },
+  {
+    id: 56,
+    image: "https://images.unsplash.com/photo-1512499617640-c2f999098d74?q=80&w=880&auto=format&fit=crop",
+    title: "Portable SSD",
+    price: 129
+  },
+  {
+    id: 57,
+    image: "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?q=80&w=880&auto=format&fit=crop",
+    title: "External Hard Drive",
+    price: 89
+  },
+  {
+    id: 58,
+    image: "https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=880&auto=format&fit=crop",
+    title: "Memory Card 128GB",
+    price: 29
+  },
+  {
+    id: 59,
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=880&auto=format&fit=crop",
+    title: "Gaming Headset",
+    price: 79
+  },
+  {
+    id: 60,
+    image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=880&auto=format&fit=crop",
+    title: "VR Controller",
+    price: 69
+  },
 
-  { id: 71, image: "https://images.unsplash.com/photo-1546290520-7049bd86726b?q=80&w=880&auto=format&fit=crop", title: "Kids Tablet", price: 129 },
-  { id: 72, image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=880&auto=format&fit=crop", title: "Bluetooth Keyboard", price: 49 },
-  { id: 73, image: "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=880&auto=format&fit=crop", title: "Smart Alarm Clock", price: 39 },
-  { id: 74, image: "https://images.unsplash.com/photo-1486591978090-9eb3a55d052e?q=80&w=880&auto=format&fit=crop", title: "Projector Screen", price: 159 },
-  { id: 75, image: "https://images.unsplash.com/photo-1507413245164-424140e43f20?q=80&w=880&auto=format&fit=crop", title: "Wireless Earbuds Pro", price: 129 },
-  { id: 76, image: "https://images.unsplash.com/photo-1570659900664-8d9dd8d8cdc7?q=80&w=880&auto=format&fit=crop", title: "Laptop Stand", price: 29 },
-  { id: 77, image: "https://images.unsplash.com/photo-1567016544036-87f7c3445ad8?q=80&w=880&auto=format&fit=crop", title: "Standing Desk", price: 249 },
-  { id: 78, image: "https://images.unsplash.com/photo-1598300058052-49b56f612d17?q=80&w=880&auto=format&fit=crop", title: "Gaming Mouse", price: 59 },
-  { id: 79, image: "https://images.unsplash.com/photo-1598300049658-48a8a86f8fcd?q=80&w=880&auto=format&fit=crop", title: "Noise Cancelling Headphones", price: 199 },
-  { id: 80, image: "https://images.unsplash.com/photo-1570814003451-d7b035ad0ec3?q=80&w=880&auto=format&fit=crop", title: "Portable Bluetooth Speaker", price: 99 },
+  {
+    id: 61,
+    image: "https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?q=80&w=880&auto=format&fit=crop",
+    title: "Laptop Backpack",
+    price: 49
+  },
+  {
+    id: 62,
+    image: "https://images.unsplash.com/photo-1555617117-1f93e00afc43?q=80&w=880&auto=format&fit=crop",
+    title: "Smart Light Bulb",
+    price: 24
+  },
+  {
+    id: 63,
+    image: "https://images.unsplash.com/photo-1560184897-b262818eb9aa?q=80&w=880&auto=format&fit=crop",
+    title: "Electric Kettle",
+    price: 39
+  },
+  {
+    id: 64,
+    image: "https://images.unsplash.com/photo-1589927986089-35812388d1f4?q=80&w=880&auto=format&fit=crop",
+    title: "Blender",
+    price: 59
+  },
+  {
+    id: 65,
+    image: "https://images.unsplash.com/photo-1512427691650-dc5a5b8d2bc5?q=80&w=880&auto=format&fit=crop",
+    title: "Air Fryer",
+    price: 89
+  },
+  {
+    id: 66,
+    image: "https://images.unsplash.com/photo-1562007900-dc3cdb15bb1b?q=80&w=880&auto=format&fit=crop",
+    title: "Rice Cooker",
+    price: 49
+  },
+  {
+    id: 67,
+    image: "https://images.unsplash.com/photo-1540574163026-643ea20ade25?q=80&w=880&auto=format&fit=crop",
+    title: "Microwave Oven",
+    price: 99
+  },
+  {
+    id: 68,
+    image: "https://images.unsplash.com/photo-1496284045406-d3e0b918d4bd?q=80&w=880&auto=format&fit=crop",
+    title: "Toaster",
+    price: 29
+  },
+  {
+    id: 69,
+    image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?q=80&w=880&auto=format&fit=crop",
+    title: "Electric Fan",
+    price: 39
+  },
+  {
+    id: 70,
+    image: "https://images.unsplash.com/photo-1465101162946-4377e57745c3?q=80&w=880&auto=format&fit=crop",
+    title: "Heater",
+    price: 59
+  },
 
-  { id: 81, image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=880&auto=format&fit=crop", title: "Smart Doorbell", price: 129 },
-  { id: 82, image: "https://images.unsplash.com/photo-1537498425277-c283d32ef9db?q=80&w=880&auto=format&fit=crop", title: "Wireless Security Cam", price: 229 },
-  { id: 83, image: "https://images.unsplash.com/photo-1508779018996-4cf9b0ff19a4?q=80&w=880&auto=format&fit=crop", title: "Smart Vacuum", price: 299 },
-  { id: 84, image: "https://images.unsplash.com/photo-1498051128015-7fc87b41ad04?q=80&w=880&auto=format&fit=crop", title: "Air Purifier", price: 199 },
-  { id: 85, image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=880&auto=format&fit=crop", title: "Electric Scooter", price: 399 },
-  { id: 86, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=880&auto=format&fit=crop", title: "E-Bike", price: 699 },
-  { id: 87, image: "https://images.unsplash.com/photo-1555949963-aa79-df1a8f80b58f?q=80&w=880&auto=format&fit=crop", title: "Smartwatch Series 7", price: 349 },
-  { id: 88, image: "https://images.unsplash.com/photo-1530888071492-5e61d6e18692?q=80&w=880&auto=format&fit=crop", title: "HD Webcam", price: 89 },
-  { id: 89, image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=880&auto=format&fit=crop", title: "Gaming Monitor 27\"", price: 329 },
-  { id: 90, image: "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?q=80&w=880&auto=format&fit=crop", title: "USB Flash Drive 256GB", price: 49 },
+  {
+    id: 71,
+    image: "https://images.unsplash.com/photo-1546290520-7049bd86726b?q=80&w=880&auto=format&fit=crop",
+    title: "Kids Tablet",
+    price: 129
+  },
+  {
+    id: 72,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=880&auto=format&fit=crop",
+    title: "Bluetooth Keyboard",
+    price: 49
+  },
+  {
+    id: 73,
+    image: "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=880&auto=format&fit=crop",
+    title: "Smart Alarm Clock",
+    price: 39
+  },
+  {
+    id: 74,
+    image: "https://images.unsplash.com/photo-1486591978090-9eb3a55d052e?q=80&w=880&auto=format&fit=crop",
+    title: "Projector Screen",
+    price: 159
+  },
+  {
+    id: 75,
+    image: "https://images.unsplash.com/photo-1507413245164-424140e43f20?q=80&w=880&auto=format&fit=crop",
+    title: "Wireless Earbuds Pro",
+    price: 129
+  },
+  {
+    id: 76,
+    image: "https://images.unsplash.com/photo-1570659900664-8d9dd8d8cdc7?q=80&w=880&auto=format&fit=crop",
+    title: "Laptop Stand",
+    price: 29
+  },
+  {
+    id: 77,
+    image: "https://images.unsplash.com/photo-1567016544036-87f7c3445ad8?q=80&w=880&auto=format&fit=crop",
+    title: "Standing Desk",
+    price: 249
+  },
+  {
+    id: 78,
+    image: "https://images.unsplash.com/photo-1598300058052-49b56f612d17?q=80&w=880&auto=format&fit=crop",
+    title: "Gaming Mouse",
+    price: 59
+  },
+  {
+    id: 79,
+    image: "https://images.unsplash.com/photo-1598300049658-48a8a86f8fcd?q=80&w=880&auto=format&fit=crop",
+    title: "Noise Cancelling Headphones",
+    price: 199
+  },
+  {
+    id: 80,
+    image: "https://images.unsplash.com/photo-1570814003451-d7b035ad0ec3?q=80&w=880&auto=format&fit=crop",
+    title: "Portable Bluetooth Speaker",
+    price: 99
+  },
 
-  { id: 91, image: "https://images.unsplash.com/photo-1486591978090-9eb3a55d052e?q=80&w=880&auto=format&fit=crop", title: "Smart BBQ Grill", price: 279 },
-  { id: 92, image: "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=880&auto=format&fit=crop", title: "Portable Power Bank", price: 39 },
-  { id: 93, image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=880&auto=format&fit=crop", title: "Car Dash Cam", price: 129 },
-  { id: 94, image: "https://images.unsplash.com/photo-1498051128015-7fc87b41ad04?q=80&w=880&auto=format&fit=crop", title: "Smart Light Strip", price: 59 },
-  { id: 95, image: "https://images.unsplash.com/photo-1560785496-aeceb8ea83d6?q=80&w=880&auto=format&fit=crop", title: "Robot Lawn Mower", price: 499 },
-  { id: 96, image: "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?q=80&w=880&auto=format&fit=crop", title: "Smart Water Bottle", price: 29 },
-  { id: 97, image: "https://images.unsplash.com/photo-1567016544036-87f7c3445ad8?q=80&w=880&auto=format&fit=crop", title: "Wireless Car Charger", price: 39 },
-  { id: 98, image: "https://images.unsplash.com/photo-1598300049658-48a8a86f8fcd?q=80&w=880&auto=format&fit=crop", title: "Bluetooth Tracker", price: 24 },
-  { id: 99, image: "https://images.unsplash.com/photo-1580894908361-d4a25f69b7c8?q=80&w=880&auto=format&fit=crop", title: "Smart Thermos", price: 19 },
-  { id: 100, image: "https://images.unsplash.com/photo-1580657019374-7f3dc45e4c96?q=80&w=880&auto=format&fit=crop", title: "Fitness Tracker", price: 89 }
+  {
+    id: 81,
+    image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=880&auto=format&fit=crop",
+    title: "Smart Doorbell",
+    price: 129
+  },
+  {
+    id: 82,
+    image: "https://images.unsplash.com/photo-1537498425277-c283d32ef9db?q=80&w=880&auto=format&fit=crop",
+    title: "Wireless Security Cam",
+    price: 229
+  },
+  {
+    id: 83,
+    image: "https://images.unsplash.com/photo-1508779018996-4cf9b0ff19a4?q=80&w=880&auto=format&fit=crop",
+    title: "Smart Vacuum",
+    price: 299
+  },
+  {
+    id: 84,
+    image: "https://images.unsplash.com/photo-1498051128015-7fc87b41ad04?q=80&w=880&auto=format&fit=crop",
+    title: "Air Purifier",
+    price: 199
+  },
+  {
+    id: 85,
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=880&auto=format&fit=crop",
+    title: "Electric Scooter",
+    price: 399
+  },
+  {
+    id: 86,
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=880&auto=format&fit=crop",
+    title: "E-Bike", price: 699
+  },
+  {
+    id: 87,
+    image: "https://images.unsplash.com/photo-1555949963-aa79-df1a8f80b58f?q=80&w=880&auto=format&fit=crop",
+    title: "Smartwatch Series 7",
+    price: 349
+  },
+  {
+    id: 88,
+    image: "https://images.unsplash.com/photo-1530888071492-5e61d6e18692?q=80&w=880&auto=format&fit=crop",
+    title: "HD Webcam",
+    price: 89
+  },
+  {
+    id: 89,
+    image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=880&auto=format&fit=crop",
+    title: "Gaming Monitor 27\"",
+    price: 329
+  },
+  {
+    id: 90,
+    image: "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?q=80&w=880&auto=format&fit=crop",
+    title: "USB Flash Drive 256GB",
+    price: 49
+  },
 
+  {
+    id: 91,
+    image: "https://images.unsplash.com/photo-1486591978090-9eb3a55d052e?q=80&w=880&auto=format&fit=crop",
+    title: "Smart BBQ Grill",
+    price: 279
+  },
+  {
+    id: 92,
+    image: "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=880&auto=format&fit=crop",
+    title: "Portable Power Bank",
+    price: 39
+  },
+  {
+    id: 93,
+    image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=880&auto=format&fit=crop",
+    title: "Car Dash Cam",
+    price: 129
+  },
+  {
+    id: 94,
+    image: "https://images.unsplash.com/photo-1498051128015-7fc87b41ad04?q=80&w=880&auto=format&fit=crop",
+    title: "Smart Light Strip",
+    price: 59
+  },
+  {
+    id: 95,
+    image: "https://images.unsplash.com/photo-1560785496-aeceb8ea83d6?q=80&w=880&auto=format&fit=crop",
+    title: "Robot Lawn Mower",
+    price: 499
+  },
+  {
+    id: 96,
+    image: "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?q=80&w=880&auto=format&fit=crop",
+    title: "Smart Water Bottle",
+    price: 29
+  },
+  {
+    id: 97,
+    image: "https://images.unsplash.com/photo-1567016544036-87f7c3445ad8?q=80&w=880&auto=format&fit=crop",
+    title: "Wireless Car Charger",
+    price: 39
+  },
+  {
+    id: 98,
+    image: "https://images.unsplash.com/photo-1598300049658-48a8a86f8fcd?q=80&w=880&auto=format&fit=crop",
+    title: "Bluetooth Tracker",
+    price: 24
+  },
+  {
+    id: 99,
+    image: "https://images.unsplash.com/photo-1580894908361-d4a25f69b7c8?q=80&w=880&auto=format&fit=crop",
+    title: "Smart Thermos",
+    price: 19
+  },
+  {
+    id: 100,
+    image: "https://images.unsplash.com/photo-1580657019374-7f3dc45e4c96?q=80&w=880&auto=format&fit=crop",
+    title: "Fitness Tracker",
+    price: 89
+  },
+  {
+    id: 101,
+    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Code Set",
+    price: 69,
+    category: "Fashion",
+  },
 
 
 
