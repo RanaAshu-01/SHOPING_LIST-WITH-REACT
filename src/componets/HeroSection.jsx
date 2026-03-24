@@ -13,13 +13,7 @@ const {searchTerm} = useContext(CartContext)
 
           {/* Video */}
           <video
-            className="
-              w-full 
-              h-55 
-              sm:h-62.5 
-              md:h-80  object-[center_40%]
-              object-cover
-            "
+            className="w-full h-55 sm:h-62.5 md:h-80 object-[center_40%] object-cover"
             src="/hero.mp4"   
             autoPlay
             loop
