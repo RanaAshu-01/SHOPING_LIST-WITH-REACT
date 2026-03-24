@@ -10,7 +10,6 @@ const CartPage = () => {
   const { cartItems, increaseQty, decreaseQty, removeItem } = useContext(CartContext);
  
 
-  // Total amount calculate karte hain
   const totalAmount = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0

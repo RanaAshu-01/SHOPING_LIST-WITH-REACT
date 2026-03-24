@@ -4,7 +4,7 @@ import Navbar from "./componets/Navbar";
 import MainSection from "./componets/MainSection";
 import LoginPage from "./login logout pages/LoginPage";
 import Footer from './pages/Footer';
-import CartPage from './cart section/Cart';
+import CartPage from './cartSection/Cart';
 import About from "./pages/About";
 import Career from "./pages/Career";
 import Press from "./pages/PressPage";
