@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { ShoppingCart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Card = ({ id, image, title, price }) => {
 
-  const { addToCart } = useContext(CartContext);
-  const [active, setActive] = useState(false)
+  const { addToCart, cartItems } = useContext(CartContext);
+  const isCart = cartItems.some((item) => item.id === id);
 
   return (
     <div className="bg-white rounded-xl shadow-md hover:shadow-xl hover:scale-101 transition duration-300  w-full p-3">
@@ -33,17 +34,82 @@ const Card = ({ id, image, title, price }) => {
         <div className="flex items-center justify-between mt-2 gap-2">
 
           <button
-            className={active ? "border-blue-600 bg-blue-300 p-2 border rounded  transition" : "p-2 border rounded hover:bg-gray-100 transition"}
-            onClick={() => addToCart({ id, image, title, price }, setActive(true))}
+            className={
+              isCart
+                ? "p-2 border border-gray-300 rounded shadow-md scale-105 transition-all duration-200"
+                : "p-2 border border-gray-300 rounded hover:bg-gray-100 transition-all duration-200"
+            }
+            onClick={() => {
+              addToCart({ id, image, title, price });
+            }}
           >
-            <ShoppingCart size={18} />
+            <Link
+              to={isCart ? "/cart" : ""}
+              className="relative w-fit cursor-pointer
+            ">
+              <ShoppingCart size={18} strokeWidth={1.5} />
+
+              {isCart && (
+                <div
+                  className="absolute -top-0.5 -right-1 bg-green-800 text-white rounded-full p-0.5">
+                  <svg width="6" height="6" viewBox="0 0 24 24">
+                    <path
+                      d="M5 13l4 4L19 7"
+                      fill="none"
+                      stroke="white"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{
+                        strokeDasharray: 50,
+                        strokeDashoffset: 50,
+                        animation: "draw 0.5s ease forwards"
+                      }}
+                    />
+                  </svg>
+                </div>
+              )}
+            </Link>
           </button>
 
+
           <div className="flex gap-1 text-[10px] sm:text-xs">
-            <p className="border px-3 py-2 rounded cursor-pointer ">Buy with EMI</p>
-            <p className="border px-3 py-2 rounded bg-amber-300 cursor-pointer">
-              Buy Now
-            </p>
+            <div
+              className="
+               flex flex-col justify-center items-center
+               border rounded-md px-6 
+               border-gray-300
+               Class	Description
+               tracking-wider
+               cursor-pointer
+               transition-transform duration-150
+               active:scale-95
+               active:bg-gray-100"
+            >
+              <p className=" font-medium">Buy with No</p>
+              <p className="font-medium text-gray-700">cost EMI</p>
+            </div>
+
+
+            <div
+              className="
+               flex flex-col justify-center items-center
+               border rounded-md px-6 
+               bg-linear-to-r from-yellow-300  to-yellow-400
+               text-black
+               Class	Description
+               tracking-wider
+               cursor-pointer
+               border-none
+               transition-transform duration-150
+               active:scale-95
+                      "
+            >
+              <p className="font-medium text-black  font-sans">Buy now</p>
+              <p className="font-semibold text-black">at ${price}</p>
+            </div>
+
+
           </div>
 
         </div>

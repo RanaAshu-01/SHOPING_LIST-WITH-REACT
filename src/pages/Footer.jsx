@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
 
-    const liStyle = "hover:text-green-600 transition duration-300 cursor-pointer";
+    const liStyle = "hover:text-yellow-600 transition duration-300 cursor-pointer";
     const SocialStyle = "hover:text-green-600 transition duration-300 cursor-pointer transform hover:scale-105";
 
     return (

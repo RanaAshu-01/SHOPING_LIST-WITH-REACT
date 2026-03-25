@@ -71,7 +71,7 @@ const CartProvider = ({ children }) => {
 
   const handleLogoutAccount = () => {
     localStorage.removeItem("user")
-    setUser("")
+    setUser(null)
   }
 
 
@@ -79,23 +79,32 @@ const CartProvider = ({ children }) => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = (product) => {
-    if (!product || !product.id) return; // 🛑 safety check
+
+  // Deals.................
+
+  const handleDeals = (product) => {
 
     setCartItems((prev) => {
-      const existing = prev.find((item) => item.id === product.id);
 
-      if (existing) {
-        return prev.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: (item.quantity || 1) + 1 }
-            : item
-        );
+      return [...prev, { ...product, quantity: 1 }]
+    })
+
+  }
+
+  const addToCart = (product) => {
+    if (!product || !product.id) return;
+
+    setCartItems((prev) => {
+      const exists = prev.find((item) => item.id === product.id);
+
+      if (exists) {
+        return prev;
       }
 
       return [...prev, { ...product, quantity: 1 }];
     });
   };
+
 
   const increaseQty = (id) => {
     setCartItems((prev) =>
@@ -119,9 +128,12 @@ const CartProvider = ({ children }) => {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
+
+
+
   return (
     <CartContext.Provider
-      value={{ cartItems, setCartItems, addToCart, increaseQty, decreaseQty, removeItem, setCategory, category, showPopUp, setShowPopUp, setLoader, loader, accountOpen, setAccountOpen, handleLogoutAccount, showData, setUser, user, setSearchTerm, searchTerm, users }}
+      value={{ cartItems, setCartItems, addToCart, increaseQty, decreaseQty, removeItem, setCategory, category, showPopUp, setShowPopUp, setLoader, loader, accountOpen, setAccountOpen, handleLogoutAccount, showData, setUser, user, setSearchTerm, searchTerm, users, handleDeals }}
     >
       {children}
     </CartContext.Provider>

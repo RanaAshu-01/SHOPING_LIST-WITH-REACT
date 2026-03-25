@@ -27,6 +27,8 @@ import Loader from "./pages/Loader";
 import Account from "./mobilePages/AccountPage";
 import  SignUpPage from "./pages/SignUpPage"
 import { CartContext } from "./context/CartContext";
+import OrderPlacedPage from "./componets/OrderPlaced";
+import Deals from "./componets/Deals";
 
 
 
@@ -73,6 +75,8 @@ const App = () => {
           <Route path="/licenses" element={<Licenses />} />
           <Route path= "/Accounts" element={<Account />} />
           <Route path= "/sign-up" element={<SignUpPage />} />
+          <Route path= "/order-placed" element= {<OrderPlacedPage />} />
+          <Route path= "/deals" element= {<Deals />} />
         </Routes>
 
         <Footer />

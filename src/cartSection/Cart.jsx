@@ -17,16 +17,23 @@ const CartPage = () => {
 
 
 
-
   return (
-    <div className="min-h-screen p-6 bg-gray-100">
-      {cartItems.length === 0 ? (
-        <div className="flex flex-col items-center justify-center mt-20">
-          <div className="w-full h-64 flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-gray-100 p-6 flex flex-col lg:flex-row gap-6 relative">
 
-            <Lottie animationData={emptyCartAnimation} loop={true} className="w-48 h-48 sm:w-80 sm:h-80" />
-            <p className="text-lg font-semibold mt-4 text-gray-700">
-              🛒 Your cart is empty!
+
+      {cartItems.length === 0 ? (
+        <div className="flex flex-col items-center  justify-center mt-20">
+
+          <div className="w-full h-64 flex flex-col items-center justify-center">
+            <Lottie
+              animationData={emptyCartAnimation}
+              loop={true}
+              className="w-48 h-48 sm:w-80 sm:h-80"
+            />
+
+            <p
+              className="text-lg font-semibold mt-4 text-gray-700"
+            >🛒 Your cart is empty!
             </p>
           </div>
           <Link
@@ -35,17 +42,17 @@ const CartPage = () => {
           >
             Go Back to Home
           </Link>
-        </div>
-      ) : (
-        <div className="flex flex-wrap justify-center gap-6">
-          {/* Cart items */}
+
+        </div>) : (
+
+        <div className="flex-1 flex flex-wrap justify-center gap-6">
           {cartItems.map((item, index) => {
             if (!item) return null;
 
             return (
               <div
                 key={item?.id || index}
-                className="flex flex-col m-4 p-4 rounded-2xl bg-white shadow-lg w-60 hover:scale-101 transition-transform"
+                className="flex h-fit flex-col m-4 p-4 rounded-2xl bg-white shadow-lg w-60 hover:scale-101 transition-transform"
               >
                 <div className="w-full h-40 overflow-hidden rounded-2xl mb-3">
                   <img
@@ -90,37 +97,53 @@ const CartPage = () => {
                 >
                   Remove
                 </button>
-
               </div>
             );
           })}
-
-
-          {/* Summary + Checkout */}
-          <div className="flex flex-col justify-between p-6 rounded-2xl bg-white shadow-lg w-72 h-fit">
-            <h2 className="text-2xl font-bold mb-4">Cart Summary ✅</h2>
-            <p className="text-lg font-semibold mb-2">
-              Total Items: <span className="text-green-500">{cartItems.length}</span>
-            </p>
-            <p className="text-lg font-semibold mb-6">
-              Total Amount: <span className="text-red-500">${totalAmount}</span>
-            </p>
-
-            {!user ? (<Link
-              to="/login"
-              className="text-center px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg font-semibold transition"
-            >
-              Proceed to Checkout
-            </Link>) : (<Link
-              to=""
-              className="text-center px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg font-semibold transition"
-            >
-              Proceed to Checkout
-            </Link>)}
-          </div>
         </div>
+      )
+      }
+
+      {/* Left: Cart Items */}
+
+
+      {/* Right: Summary - Desktop */}
+      {cartItems.length >= 1 && (<div className="hidden lg:flex flex-col justify-between p-6 rounded-2xl bg-white shadow-lg w-72 h-fit sticky top-6">
+        <h2 className="text-2xl font-bold mb-4">Place Order ✅</h2>
+
+        <p className="text-lg font-semibold mb-2">
+          Total Items: <span className="text-green-500">{cartItems.length}</span>
+        </p>
+        <p className="text-lg font-semibold mb-6">
+          Total Amount: <span className="text-red-500">${totalAmount}</span>
+        </p>
+
+        <Link
+          to={user ? "/order-placed" : "/login"}
+          className="text-center px-4 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-semibold transition"
+        >
+          Place Order
+        </Link>
+      </div>)}
+
+      {/* Mobile / iPad: Bottom Navbar */}
+      {cartItems.length >= 1 && (<div className="lg:hidden fixed bottom-14 left-0 w-full bg-white border-t border-t-gray-300 py-1 px-3 flex justify-between items-center shadow-md">
+        <div>
+          <p className="text-gray-800 font-semibold">
+            Total: <span className="text-red-500">${totalAmount}</span>
+          </p>
+          <p className="text-gray-600 text-sm">{cartItems.length} Items</p>
+        </div>
+        <Link
+          to={user ? "/order-placed" : "/login"}
+          className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-semibold"
+        >
+          Place Order
+        </Link>
+      </div>
       )}
     </div>
+
   );
 };
 

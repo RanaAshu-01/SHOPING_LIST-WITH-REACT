@@ -6,7 +6,7 @@ import { MapPin, CircleUser, Flame, ShoppingCart, House } from 'lucide-react';
 const Navbar = () => {
 
 
-  const { searchTerm, setSearchTerm, cartItems, category, setCategory, setShowPopUp, setLoader, handleLogout, showData, user } = useContext(CartContext);
+  const { searchTerm, setSearchTerm, cartItems, category, setCategory, setShowPopUp, setLoader, showData, user } = useContext(CartContext);
 
   const showPopUp = () => {
     setShowPopUp(true)
@@ -30,7 +30,7 @@ const Navbar = () => {
           </Link>
 
           {/* Mobile Welcome Text */}
-          <div className="sm:hidden text-[10px] text-gray-300 leading-tight text-right ml-auto">
+          <div className="sm:hidden text-[10px] text-gray-300 leading-tight text-right ml-auto mr-3">
             <p>Welcome to ShopZone</p>
             <p className="text-yellow-400 cursor-pointer">Download App</p>
           </div>
@@ -111,10 +111,12 @@ const Navbar = () => {
 
 
 
-          <div className="hidden xl:block text-xs bg-linear-to-r from-yellow-400 to-orange-400 text-black px-3 py-2 rounded-md font-semibold cursor-pointer hover:scale-105 transition"
+          <Link
+            to="/deals"
+            className="hidden xl:block text-xs bg-linear-to-r from-yellow-400 to-orange-400 text-black px-3 py-2 rounded-md font-semibold cursor-pointer hover:scale-105 transition"
           >
             🔥 Deals
-          </div>
+          </Link>
 
 
           {/* Language */}
@@ -198,13 +200,13 @@ const Navbar = () => {
       </nav>
 
 
-      <div className="fixed bottom-0 left-0 w-full bg-gray-100  flex justify-around items-center py-2 xl:hidden z-50">
+      <div className="fixed bottom-0 left-0 w-full bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 text-white  flex justify-around items-center py-2 xl:hidden z-50">
 
         {/* Home */}
         <NavLink
           to="/"
-          className={({isActive}) => 
-          isActive ? "flex flex-col items-center text-xs text-blue-800 cursor-pointer" : "cursor-pointer flex flex-col items-center text-xs"
+          className={({ isActive }) =>
+            isActive ? "flex flex-col items-center text-xs text-green-600 cursor-pointer" : "cursor-pointer flex flex-col items-center text-xs"
           }
         >
           <House />
@@ -212,30 +214,34 @@ const Navbar = () => {
         </NavLink>
 
         {/* Deals */}
-        <div className="flex flex-col items-center text-xs cursor-pointer">
+        <NavLink
+          to="/deals"
+          className={({ isActive }) =>
+            isActive ? "flex flex-col items-center text-xs text-green-600 cursor-pointer" : "cursor-pointer flex flex-col items-center text-xs"
+          }
+        >
           <Flame />
           <span>Deals</span>
-        </div>
+        </NavLink>
 
         <NavLink
-          to="Accounts"
-         className={({isActive}) => 
-          isActive ? "flex flex-col items-center text-xs text-blue-800 cursor-pointer" : "cursor-pointer flex flex-col items-center text-xs"
+          to="/Accounts"
+          className={({ isActive }) =>
+            isActive ? "flex flex-col items-center text-xs text-green-600 cursor-pointer" : "cursor-pointer flex flex-col items-center text-xs"
           }>
           <CircleUser size={18} />
-          <div
-            onClick={handleLogout}
-          >Account
+          <div>
+            Account
           </div>
         </NavLink>
 
         <NavLink
-         to="/cart" 
-         className={({isActive}) => 
-          isActive ? "flex flex-col items-center text-xs text-blue-800 relative" : "cursor-pointer flex flex-col items-center text-xs relative"
+          to="/cart"
+          className={({ isActive }) =>
+            isActive ? "flex flex-col items-center text-xs text-green-600 relative" : "cursor-pointer flex flex-col items-center text-xs relative"
           }
-        
-         >
+
+        >
           <ShoppingCart className="group-hover:scale-110 transition" />
           <span className="absolute text-white -top-1 -right-2 bg-red-500 text-[10px] px-1 rounded-full">
             {cartItems.length}
