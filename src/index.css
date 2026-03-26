@@ -20,3 +20,31 @@
   animation: scroll 15s linear infinite;
 }
 
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(0); 
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-slideOut {
+  animation: slideOut 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+}

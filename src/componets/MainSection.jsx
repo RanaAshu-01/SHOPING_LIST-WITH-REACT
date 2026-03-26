@@ -1,7 +1,6 @@
 import Card from "./TempCard";
-import HeroSection from "./HeroSection";
 import Filter from "./Filter";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import AutoScroll from "./AutoScroll";
 import BannerSlider from "./BannerSlider";
@@ -14,10 +13,15 @@ const MainSection = () => {
   const [priceRange, setsetPriceRange] = useState([])
   const [highAndLow, setHighAndLow] = useState("")
   const { category, searchTerm, users } = useContext(CartContext)
+  const [shuffledData, setShuffledData] = useState([]);
 
 
+  useEffect(() => {
+    const userShuffled = users.sort(() => 0.5 - Math.random());
+    setShuffledData(userShuffled)
+  }, [])
 
-  const filteredUsers = users.filter((item) => {
+  const filteredUsers = shuffledData.filter((item) => {
 
     let matchSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase().trim())
     let matchBrands = brands.length === 0 || brands.includes(item.Brand);
@@ -63,19 +67,20 @@ const MainSection = () => {
     });
   }
 
-  const userShuffled = finalData.sort(() => 0.5 - Math.random());
-  
+
+
 
 
   return (
+    <>
     <div >
       <BannerSlider />
       <AutoScroll />
 
       <div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-2 p-4">
-          {userShuffled.length > 0 ? (
-            userShuffled.map((elem) => (
+          {finalData.length > 0 ? (
+            finalData.map((elem) => (
               <Card
                 key={elem.id}
                 id={elem.id}
@@ -97,6 +102,7 @@ const MainSection = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

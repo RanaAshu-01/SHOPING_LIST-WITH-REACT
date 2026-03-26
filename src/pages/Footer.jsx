@@ -8,7 +8,7 @@ const Footer = () => {
 
     return (
 
-        <div className="w-full bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 text-white px-8 py-4">
+        <div className="w-full bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 text-white px-8 py-4 pb-20 xl:pb-0">
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8  ms-16">
 

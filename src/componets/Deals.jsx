@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom';
+import { Flame } from 'lucide-react';
 
 const Deals = () => {
     const { users, handleDeals } = useContext(CartContext);
@@ -13,12 +14,18 @@ const Deals = () => {
     const deals = users ? getRandomProducts(users, 4) : [];
 
     return (
-        <div className="bg-gray-100 py-12 px-6">
+        <div className="bg-gray-100 py-12 mt-8 px-6">
             {/* Section Header */}
             <div className="max-w-7xl mx-auto mb-8 text-center">
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-800">
-                    🔥 Hot Deals
-                </h2>
+                <div className='flex items-center justify-center gap-3'>
+                    <p className='text-orange-600 '>
+                        <Flame strokeWidth={3}/>
+                    </p>
+                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-800">
+                        Hot Deals
+                    </h2>
+                </div>
+
                 <p className="text-gray-600 mt-2 text-lg">
                     Grab these exclusive offers before they're gone!
                 </p>

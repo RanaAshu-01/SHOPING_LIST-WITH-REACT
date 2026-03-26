@@ -17,6 +17,7 @@ const Card = ({ id, image, title, price }) => {
           className="w-full h-full object-cover"
           src={image}
           alt={title}
+          loading="lazy"
         />
       </div>
 

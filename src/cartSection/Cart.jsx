@@ -25,6 +25,7 @@ const CartPage = () => {
     <div className="min-h-screen bg-gray-100 p-6 flex flex-col lg:flex-row gap-6 relative">
 
 
+
       {cartItems.length === 0 ? (
         <div className="flex flex-col items-center  justify-center mt-20">
 
@@ -49,7 +50,7 @@ const CartPage = () => {
 
         </div>) : (
 
-        <div className="flex-1 flex flex-wrap justify-center gap-6">
+        <div className="flex-1 flex flex-wrap justify-center gap-6 mt-10 xl:mt-0">
           {cartItems.map((item, index) => {
             if (!item) return null;
 

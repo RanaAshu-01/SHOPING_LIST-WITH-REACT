@@ -1,18 +1,25 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { CartContext } from '../context/CartContext'
 import Card from "./TempCard";
 
 
+
 const ElectronicItems = () => {
     const { users } = useContext(CartContext)
+    const [userShuffled, setUserShuffled] = useState([])
+
 
     const electronicsFilter = users.filter((item) => {
         let matchElectronics = item.category?.includes("Electronics")
 
         return matchElectronics
     })
+    useEffect(() => {
+        const Shuffled = electronicsFilter.sort(() => 0.5 - Math.random());
+        setUserShuffled(Shuffled)
+    }, [])
 
-    const userShuffled = electronicsFilter.sort(() => 0.5 - Math.random());
+
 
 
 

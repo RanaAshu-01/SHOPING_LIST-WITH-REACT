@@ -32,14 +32,17 @@ const Filter = ({ setBrands, setPriceRange, setHighAndLow, highAndLow, brands, p
                         onClick={() => setOpen(false)}
                     >
                         <div
-                           className="bg-transparent p-4 sm:p-6 rounded-lg w-80 max-h-[91vh]  sm:max-h-auto mt-25 sm:mt-15 shadow-xl flex flex-col overflow-y-auto"
+                            className={`
+                                bg-gray-900 p-4  sm:p-6 rounded-lg w-80 max-h-[91vh]  sm:max-h-auto mt-40 sm:mt-15 shadow-xl flex flex-col overflow-y-auto 
+                                ${open ? "animate-slideIn" : "animate-slideOut"}
+                            `}
 
 
                             onClick={(e) => e.stopPropagation()}
                         >
                             {/* Top Content */}
                             <div className="sm:flex-1">
-                                <h2 className="text-2xl text-white bg-yellow-500  py-1 rounded  font-semibold mb-4 mt-6 text-center">
+                                <h2 className="text-2xl text-white bg-yellow-500  py-1 rounded  font-semibold  sm:mb-4 mt-6 text-center">
                                     Filter Product's
                                 </h2>
 
@@ -272,7 +275,7 @@ const Filter = ({ setBrands, setPriceRange, setHighAndLow, highAndLow, brands, p
                             < div className="flex justify-end " >
                                 <button
                                     onClick={() => setOpen(false)}
-                                    className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 mt-5 sm:mt-0"
+                                    className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 "
                                 >
                                     Close
                                 </button>

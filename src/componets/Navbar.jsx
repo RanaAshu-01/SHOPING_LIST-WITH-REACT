@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 const Navbar = () => {
   ''
   const { t, i18n } = useTranslation();
-  const { searchTerm, setSearchTerm, cartItems, category, setCategory, setShowPopUp, setLoader, showData, user } = useContext(CartContext);
+  const { searchTerm, setSearchTerm, cartItems, category, setCategory, setShowPopUp, showData, user } = useContext(CartContext);
 
   const showPopUp = () => {
     setShowPopUp(true)
@@ -55,11 +55,7 @@ const Navbar = () => {
               value={category}
               onChange={(e) => {
                 const value = e.target.value;
-                setLoader(true);
-                setTimeout(() => {
-                  setCategory(value);
-                  setLoader(false);
-                }, 500);
+                setCategory(value);
               }}
             >
               <option value={t("all")}>{t("all")}</option>
@@ -89,8 +85,8 @@ const Navbar = () => {
 
 
           <div
-          onClick={() => navigate("/Accounts")}
-          className="hidden xl:flex flex-col text-xs leading-tight cursor-pointer hover:border p-1 rounded">
+            onClick={() => navigate("/Accounts")}
+            className="hidden xl:flex flex-col text-xs leading-tight cursor-pointer hover:border p-1 rounded">
             <span className="text-gray-300">{t("welcome")}, {user?.name || "Guest"}</span>
             <span className="font-semibold">Account & Lists</span>
           </div>
@@ -195,7 +191,7 @@ const Navbar = () => {
             shadow
           "
                 >
-                 {t("logout")} 
+                  {t("logout")}
                 </button>
               )}
 

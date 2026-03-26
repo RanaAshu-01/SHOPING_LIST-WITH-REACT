@@ -10,9 +10,10 @@ const Loader = () => {
 
     return (
         <>
-            {loader && (<div className="fixed inset-0 z-50 flex justify-center items-center bg-black/30 backdrop-blur-[1px]">
+            {loader && (<div className="fixed inset-0 z-50 flex justify-center items-center bg-black/30 backdrop-blur-sm">
 
-                <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin">
+
+                <div className="w-12 h-12 border-4 border-gray-600 border-t-transparent rounded-full animate-spin">
 
                 </div>
 

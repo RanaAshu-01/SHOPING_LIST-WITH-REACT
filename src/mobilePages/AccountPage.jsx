@@ -33,7 +33,7 @@ const Account = () => {
 
                         <div>
                             <p className="text-gray-500 text-sm">Phone</p>
-                            <p className="font-semibold">{"************"}</p>
+                            <p className="font-semibold">{"***********"}</p>
                         </div>
 
                         <div>

@@ -83,7 +83,7 @@ const users = [
 
   {
     id: 9,
-    image: "https://images.unsplash.com/photo-1766503206606-27de0861e8a4?q=80&w=880&auto=format&fit=crop",
+    image: "https://images.gizbot.com/webp/img/2026/02/iphone-17e-price-specs-1770609909.jpg",
     title: "iPhone 17E",
     price: 1300,
     Brand: "Apple",
@@ -182,7 +182,7 @@ const users = [
 
   {
     id: 21,
-    image: "https://images.unsplash.com/photo-1591012911207-57ece8b00441?q=80&w=880&auto=format&fit=crop",
+    image: "https://www.dxomark.com/wp-content/uploads/drafts/post-103489/Google-Pixel-6-featured-image-packshot-review-Recovered.jpg",
     title: "Google Pixel 6",
     price: 499,
     category: "Electronics",
@@ -521,7 +521,7 @@ const users = [
   },
   {
     id: 70,
-    image: "https://images.unsplash.com/photo-1465101162946-4377e57745c3?q=80&w=880&auto=format&fit=crop",
+    image: "https://longwayindia.com/cdn/shop/files/LW-Blaze-800-W-2R-Gray-P1.jpg?v=1756816467",
     title: "Heater",
     price: 59
   },

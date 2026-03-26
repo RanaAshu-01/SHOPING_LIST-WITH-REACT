@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../context/CartContext'
 import Card from "./TempCard";
 
 const Mobile = () => {
 
     const { users } = useContext(CartContext)
+    const [userShuffled, setUserShuffled] = useState([])
 
 
     const mobileFilter = users.filter((item) => {
@@ -12,9 +13,13 @@ const Mobile = () => {
 
         return matchMobile
     })
+    useEffect(() => {
+        const Shuffled = mobileFilter.sort(() => 0.5 - Math.random());
+        setUserShuffled(Shuffled)
+    }, [])
 
-    const userShuffled = mobileFilter.sort(() => 0.5 - Math.random());
-   
+
+
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-2 p-4 mt-15 md:mt-0">
