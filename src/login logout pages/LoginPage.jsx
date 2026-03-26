@@ -78,7 +78,7 @@ const LoginPage = () => {
    <div className="min-h-screen bg-gray-100 flex flex-col sm:flex-row items-center justify-center p-4 sm:p-8 gap-8">
 
   {/* Lottie Animation */}
-  <div className="flex justify-center w-full sm:w-1/2">
+  <div className="flex justify-center w-full sm:w-1/2 mt-12 xl:mt-0">
     <Lottie 
       animationData={LoginAnimation} 
       loop={true} 
@@ -89,7 +89,7 @@ const LoginPage = () => {
   {/* Login Form */}
   <form
     onSubmit={handleSubmit}
-    className="bg-white border border-gray-200 rounded-3xl shadow-2xl p-6 sm:p-10 w-full max-w-sm flex flex-col gap-6"
+    className="bg-white border border-gray-200 rounded-3xl shadow-2xl p-6 sm:p-10 w-full max-w-sm flex flex-col gap-6 "
   >
     <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-800">
       Login

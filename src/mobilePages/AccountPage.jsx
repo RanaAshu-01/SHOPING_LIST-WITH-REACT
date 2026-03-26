@@ -13,7 +13,7 @@ const Account = () => {
     return (
         <>
             {user ? (
-                <div className="min-h-screen bg-gray-100 p-4 flex flex-col">
+                <div className="min-h-screen bg-gray-100 p-4 flex flex-col ">
 
                     {/* 🔥 Header */}
                     <h1 className="text-2xl font-bold mb-4">My Account</h1>
@@ -57,7 +57,7 @@ const Account = () => {
 
                 </div>
             ) : (
-                <div className="min-h-screen bg-gray-100 flex flex-col items-center  px-4 space-y-6">
+                <div className="min-h-screen bg-gray-100 flex flex-col items-center  px-4 space-y-6 mt-10 xl:mt-0">
 
                     {/* Lottie Animation */}
                     <div className="w-full flex justify-center">

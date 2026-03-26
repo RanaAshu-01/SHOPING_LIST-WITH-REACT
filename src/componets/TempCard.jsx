@@ -46,13 +46,12 @@ const Card = ({ id, image, title, price }) => {
           >
             <Link
               to={isCart ? "/cart" : ""}
-              className="relative w-fit cursor-pointer
-            ">
+              className="relative flex items-center justify-center w-6 h-6"
+            >
               <ShoppingCart size={18} strokeWidth={1.5} />
 
               {isCart && (
-                <div
-                  className="absolute -top-0.5 -right-1 bg-green-800 text-white rounded-full p-0.5">
+                <div className="absolute -top-1 -right-1 bg-green-800 text-white rounded-full p-0.5">
                   <svg width="6" height="6" viewBox="0 0 24 24">
                     <path
                       d="M5 13l4 4L19 7"
@@ -71,6 +70,7 @@ const Card = ({ id, image, title, price }) => {
                 </div>
               )}
             </Link>
+
           </button>
 
 
