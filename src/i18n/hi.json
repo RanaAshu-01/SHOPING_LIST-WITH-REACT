@@ -1,0 +1,19 @@
+{
+  "welcome": "स्वागत है",
+  "downloadApp": "ऐप डाउनलोड करें",
+  "all": "सभी",
+  "electronics": "इलेक्ट्रॉनिक्स",
+  "fashion": "फैशन",
+  "mobiles": "मोबाइल",
+  "laptops": "लैपटॉप",
+  "books": "किताबें",
+  "deals": "डील्स",
+  "account": "खाता",
+  "cart": "कार्ट",
+  "home": "होम",
+  "placeOrder": "ऑर्डर करें",
+  "logout": "लॉग आउट",
+  "login": "लॉग इन",
+  "deliverTo": "पहुंचाएँ",
+  "detectingLocation": "स्थान पता लगाया जा रहा है..."
+}

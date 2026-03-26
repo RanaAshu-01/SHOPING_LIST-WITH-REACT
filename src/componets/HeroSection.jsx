@@ -9,7 +9,7 @@ const {searchTerm} = useContext(CartContext)
   return (
     <>
       {!searchTerm?.trim() && (
-        <div className="relative w-full">
+        <div className="relative  w-full mt-12 sm:mt-0">
 
           {/* Video */}
           <video
@@ -41,7 +41,7 @@ const {searchTerm} = useContext(CartContext)
               Big Deals Today
             </h2>
             <p className="text-xs sm:text-sm">
-              Up to 50% off on top products
+              Up to 50% off on fashion products
             </p>
           </div>
 

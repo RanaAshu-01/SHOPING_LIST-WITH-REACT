@@ -3,6 +3,8 @@ import HeroSection from "./HeroSection";
 import Filter from "./Filter";
 import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
+import AutoScroll from "./AutoScroll";
+import BannerSlider from "./BannerSlider";
 
 
 const MainSection = () => {
@@ -61,18 +63,19 @@ const MainSection = () => {
     });
   }
 
-
-
+  const userShuffled = finalData.sort(() => 0.5 - Math.random());
+  
 
 
   return (
     <div >
-      <HeroSection/>
+      <BannerSlider />
+      <AutoScroll />
 
       <div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-2 p-4">
-          {finalData.length > 0 ? (
-            finalData.map((elem) => (
+          {userShuffled.length > 0 ? (
+            userShuffled.map((elem) => (
               <Card
                 key={elem.id}
                 id={elem.id}

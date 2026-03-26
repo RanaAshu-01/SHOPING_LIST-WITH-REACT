@@ -1,59 +1,73 @@
 import { useNavigate } from "react-router-dom";
-import Lottie from "lottie-react";
-import Construction from "../assets/animations/Construction.json";
-
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 const OrderPlacedPage = () => {
 
-    const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { cartItems, handlePayment } = useContext(CartContext);
 
-
+  // Total calculate
+  const totalAmount = cartItems.reduce((acc, item) => {
+    return acc + item.price;
+  }, 0);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
 
-            <div className="w-full flex justify-center mb-6 ">
-                <Lottie
-                    animationData={Construction}
-                    loop={true}
-                    className="w-full h-70  sm:w-100 sm:h-100"
-                />
-            </div>
+      {/* Card */}
+      <div className="bg-white shadow-2xl rounded-2xl p-6 sm:p-10 w-full max-w-md flex flex-col gap-4">
 
-            {/* Info Card */}
-            <div className="bg-white shadow-2xl rounded-2xl p-6 sm:p-10 w-full max-w-sm flex flex-col gap-4 text-center">
+        {/* Heading */}
+        <h2 className="text-2xl font-bold text-gray-800 text-center">
+          Order Summary 🛒
+        </h2>
 
-                {/* Icon */}
-                <div className="text-5xl">🚧</div>
+        {/* Items List */}
+        <div className="max-h-60 overflow-y-auto">
+          {cartItems.length === 0 ? (
+            <p className="text-gray-500 text-center">Cart is empty</p>
+          ) : (
+            cartItems.map((item, index) => (
+              <div
+                key={index}
+                className="flex justify-between border-b py-2 text-sm"
+              >
+                <span>{item.title}</span>
+                <span>₹{item.price*91}</span>
+              </div>
+            ))
+          )}
+        </div>
 
-                {/* Heading */}
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
-                    Signup Coming Soon!
-                </h2>
+        {/* Total */}
+        <div className="flex justify-between font-semibold text-lg mt-2">
+          <span>Total:</span>
+          <span>₹{totalAmount*91}</span>
+        </div>
 
-                {/* Subtext */}
-                <p className="text-gray-500 text-sm sm:text-base">
-                    We're still working on the page. Stay tuned!
-                </p>
+        {/* Buttons */}
+        <div className="flex flex-col gap-3 mt-4">
 
-                {/* Buttons */}
-                <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
+          {/* Pay Now */}
+          <button
+            onClick={() => handlePayment(totalAmount *91)}
+            className="bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold transition active:scale-95"
+          >
+            Pay Now 💳
+          </button>
 
-                    {/* Go Home */}
-                    <button
-                        onClick={() => navigate("/")}
-                        className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg font-semibold transition active:scale-95"
-                    >
-                        Go Home
-                    </button>
-
-                  
-                  
-
-                </div>
-            </div>
+          {/* Back */}
+          <button
+            onClick={() => navigate("/")}
+            className="bg-gray-300 hover:bg-gray-400 text-black py-2 rounded-lg font-semibold transition"
+          >
+            Continue Shopping 🏠
+          </button>
 
         </div>
+      </div>
+    </div>
   );
 };
 

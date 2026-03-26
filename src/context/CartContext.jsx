@@ -1,5 +1,10 @@
 import { createContext, useState, useEffect } from "react";
 import users from "../data/data";
+import slidesData from "../data/slideData";
+import autoScrollImages from "../data/autoScrollImages";
+import { useNavigate } from "react-router-dom";
+
+
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
@@ -12,6 +17,7 @@ const CartProvider = ({ children }) => {
   const [accountOpen, setAccountOpen] = useState(false)
   const [showData, setShowData] = useState("")
   const API_KEY = "e4c4f3066f2d4aa88020182710e8db2a"
+  const navigate = useNavigate()
 
 
 
@@ -129,11 +135,46 @@ const CartProvider = ({ children }) => {
   };
 
 
+  const handlePayment = (amount) => {
+    const options = {
+      key: "rzp_test_SVTrrkoZoAymLd",
+      amount: amount * 100,
+      currency: "INR",
+      name: "ShopZone",
+
+      handler: function (response) {
+        alert("Payment Success: " + response.razorpay_payment_id);
+      },
+
+      prefill: {
+        name: "Ashu",
+        email: "ashu@test.com",
+      },
+
+      theme: {
+        color: "#3399cc",
+      },
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  };
+
+  const handleNavigate = (items) => {
+    if (items.product === "Mobile Offers"){
+      navigate("/mobile")
+    }else if (items.product === "Electronics Offers"){
+      navigate("/electronics")
+    }else if (items.product === "Fashion Offers"){
+        navigate("/fashion")
+    }
+  }
+
 
 
   return (
     <CartContext.Provider
-      value={{ cartItems, setCartItems, addToCart, increaseQty, decreaseQty, removeItem, setCategory, category, showPopUp, setShowPopUp, setLoader, loader, accountOpen, setAccountOpen, handleLogoutAccount, showData, setUser, user, setSearchTerm, searchTerm, users, handleDeals }}
+      value={{ cartItems, setCartItems, addToCart, increaseQty, decreaseQty, removeItem, setCategory, category, showPopUp, setShowPopUp, setLoader, loader, accountOpen, setAccountOpen, handleLogoutAccount, showData, setUser, user, setSearchTerm, searchTerm, users, handleDeals, handlePayment, slidesData, autoScrollImages, handleNavigate }}
     >
       {children}
     </CartContext.Provider>

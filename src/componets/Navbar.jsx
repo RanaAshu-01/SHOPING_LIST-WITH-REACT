@@ -1,19 +1,25 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { MapPin, CircleUser, Flame, ShoppingCart, House } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
+
 
 const Navbar = () => {
-
-
+  ''
+  const { t, i18n } = useTranslation();
   const { searchTerm, setSearchTerm, cartItems, category, setCategory, setShowPopUp, setLoader, showData, user } = useContext(CartContext);
 
   const showPopUp = () => {
     setShowPopUp(true)
   }
 
+  const navigate = useNavigate()
+
   return (
     <>
+
       <nav className="bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 text-white sticky top-0 z-50 shadow-lg">
 
 
@@ -56,12 +62,13 @@ const Navbar = () => {
                 }, 500);
               }}
             >
-              <option value="All">All</option>
-              <option value="Electronics">Electronics</option>
-              <option value="Fashion">Fashion</option>
-              <option value="Mobiles">Mobiles</option>
-              <option value="Laptops">Laptops</option>
-              <option value="Books">Books</option>
+              <option value={t("all")}>{t("all")}</option>
+              <option value={t("electronics")}>{t("electronics")}</option>
+              <option value={t("fashion")}>{t("fashion")}</option>
+              <option value={t("mobiles")}>{t("mobiles")}</option>
+              <option value={t("laptops")}>{t("laptops")}</option>
+              <option value={t("books")}>{t("books")}</option>
+
             </select>
 
             {/* Input */}
@@ -81,8 +88,10 @@ const Navbar = () => {
           </div>
 
 
-          <div className="hidden xl:flex flex-col text-xs leading-tight cursor-pointer hover:border p-1 rounded">
-            <span className="text-gray-300">Hello, {user?.name || "Guest"}</span>
+          <div
+          onClick={() => navigate("/Accounts")}
+          className="hidden xl:flex flex-col text-xs leading-tight cursor-pointer hover:border p-1 rounded">
+            <span className="text-gray-300">{t("welcome")}, {user?.name || "Guest"}</span>
             <span className="font-semibold">Account & Lists</span>
           </div>
 
@@ -96,12 +105,12 @@ const Navbar = () => {
                 {/* Deliver to */}
                 <p className="flex items-center gap-1 text-sm md:text-xs text-gray-400 whitespace-nowrap">
                   <MapPin size={16} className="text-red-400" />
-                  Deliver to
+                  {t("deliverTo")}
                 </p>
 
                 {/* Location */}
                 <p className="text-sm sm:text-base font-semibold text-white truncate">
-                  {showData || "Detecting location..."}
+                  {showData || t("detectingLocation")}
                 </p>
 
               </div>
@@ -122,9 +131,12 @@ const Navbar = () => {
           {/* Language */}
           <div className="hidden xl:flex items-center gap-1 cursor-pointer rounded hover:border p-1 transition">
             🌐
-            <select className="bg-transparent text-white text-xs outline-none cursor-pointer">
-              <option className="text-black">EN</option>
-              <option className="text-black">HI</option>
+            <select
+              onChange={(e) => i18n.changeLanguage(e.target.value)}
+              className="bg-transparent text-white text-xs outline-none cursor-pointer"
+            >
+              <option className="text-white bg-gray-800" value="en" >EN</option>
+              <option className="text-white bg-gray-800" value="hi" >HI</option>
             </select>
           </div>
 
@@ -165,7 +177,7 @@ const Navbar = () => {
             shadow
           "
                 >
-                  Log-In
+                  {t("login")}
                 </Link>
               ) : (
                 <button
@@ -183,7 +195,7 @@ const Navbar = () => {
             shadow
           "
                 >
-                  Log-Out
+                 {t("logout")} 
                 </button>
               )}
 

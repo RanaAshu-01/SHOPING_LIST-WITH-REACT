@@ -3,10 +3,12 @@ import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import emptyCartAnimation from "../assets/animations/empty.json";
+import CountUp from "../componets/CountUp"
 
 
 
 const CartPage = () => {
+  
   const { cartItems, increaseQty, decreaseQty, removeItem, user } = useContext(CartContext);
 
 
@@ -14,6 +16,8 @@ const CartPage = () => {
     (total, item) => total + item.price * item.quantity,
     0
   );
+
+  
 
 
 
@@ -115,7 +119,10 @@ const CartPage = () => {
           Total Items: <span className="text-green-500">{cartItems.length}</span>
         </p>
         <p className="text-lg font-semibold mb-6">
-          Total Amount: <span className="text-red-500">${totalAmount}</span>
+          Total Amount: <span className="text-red-500"> $ <CountUp targetAmount={totalAmount } /> </span>
+        </p>
+        <p className="text-sm font-semibold mb-6">
+          Pay INR: <span className="text-red-500"> $ <CountUp targetAmount={totalAmount * 91} /> </span>
         </p>
 
         <Link
@@ -130,7 +137,10 @@ const CartPage = () => {
       {cartItems.length >= 1 && (<div className="lg:hidden fixed bottom-14 left-0 w-full bg-white border-t border-t-gray-300 py-1 px-3 flex justify-between items-center shadow-md">
         <div>
           <p className="text-gray-800 font-semibold">
-            Total: <span className="text-red-500">${totalAmount}</span>
+            Total: <span className="text-red-500">$ <CountUp targetAmount={totalAmount} /> </span>
+          </p>
+          <p className="text-gray-800 text-xs font-semibold">
+            Pay INR: <span className="text-red-600 font-bold">$ <CountUp targetAmount={totalAmount * 91} /> </span>
           </p>
           <p className="text-gray-600 text-sm">{cartItems.length} Items</p>
         </div>

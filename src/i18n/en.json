@@ -1,0 +1,19 @@
+{
+  "welcome": "Welcome",
+  "downloadApp": "Download App",
+  "all": "All",
+  "electronics": "Electronics",
+  "fashion": "Fashion",
+  "mobiles": "Mobiles",
+  "laptops": "Laptops",
+  "books": "Books",
+  "deals": "Deals",
+  "account": "Account",
+  "cart": "Cart",
+  "home": "Home",
+  "placeOrder": "Place Order",
+  "logout": "Log-Out",
+  "login": "Log-In",
+  "deliverTo": "Deliver to",
+  "detectingLocation": "Detecting location..."
+}
