@@ -39,15 +39,9 @@ import Fashion from "./componets/Fashion";
 
 
 const App = () => {
-  const { setUser, loader, setLoader, users } = useContext(CartContext);
+  const { setUser, loader } = useContext(CartContext);
 
- useEffect(() => {
-  if (!users || users.length === 0) {
-    setLoader(true);
-  } else {
-    setLoader(false);
-  }
-}, [users]);
+
 
   useEffect(() => {
     const setData = JSON.parse(localStorage.getItem("user"));
@@ -56,51 +50,51 @@ const App = () => {
       setUser(setData)
     }
   }, [])
-
+ 
+  
 
   return (
     <>
-      
-        
-          <Navbar />
-          <CategoryNavbar />
-          <ScrollToTop />
-          <LogoutPopUp />
-          <Loader />
-          <Loader />
 
-          <Routes>
-            <Route path="/" element={<MainSection />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/career" element={<Career />} />
-            <Route path="/press" element={<Press />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/help" element={<HelpCenter />} />
-            <Route path="/safety" element={<SafetyCenter />} />
-            <Route path="/community" element={<CommunityGuidelines />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/shipping" element={<Shipping />} />
-            <Route path="/returns" element={<Returns />} />
-            <Route path="/order-tracking" element={<OrderTracking />} />
-            <Route path="/gift-cards" element={<GiftCards />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/cookie-policy" element={<CookiePolicy />} />
-            <Route path="/licenses" element={<Licenses />} />
-            <Route path="/Accounts" element={<Account />} />
-            <Route path="/sign-up" element={<SignUpPage />} />
-            <Route path="/order-placed" element={<OrderPlacedPage />} />
-            <Route path="/deals" element={<Deals />} />
-            <Route path="/mobile" element={<Mobile />} />
-            <Route path="/electronics" element={<ElectronicItems />} />
-            <Route path="/fashion" element={<Fashion />} />
-          </Routes>
 
-          <Footer />
-    
-      
+      <Navbar />
+      <CategoryNavbar />
+      <ScrollToTop />
+      <LogoutPopUp />
+      {loader && (<Loader />)}
+
+      <Routes>
+        <Route path="/" element={<MainSection />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/career" element={<Career />} />
+        <Route path="/press" element={<Press />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/help" element={<HelpCenter />} />
+        <Route path="/safety" element={<SafetyCenter />} />
+        <Route path="/community" element={<CommunityGuidelines />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/shipping" element={<Shipping />} />
+        <Route path="/returns" element={<Returns />} />
+        <Route path="/order-tracking" element={<OrderTracking />} />
+        <Route path="/gift-cards" element={<GiftCards />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/licenses" element={<Licenses />} />
+        <Route path="/Accounts" element={<Account />} />
+        <Route path="/sign-up" element={<SignUpPage />} />
+        <Route path="/order-placed" element={<OrderPlacedPage />} />
+        <Route path="/deals" element={<Deals />} />
+        <Route path="/mobile" element={<Mobile />} />
+        <Route path="/electronics" element={<ElectronicItems />} />
+        <Route path="/fashion" element={<Fashion />} />
+      </Routes>
+
+      <Footer />
+
+
     </>
   );
 };

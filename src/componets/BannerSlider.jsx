@@ -15,7 +15,7 @@ const BannerSlider = () => {
   const [current, setCurrent] = useState(1);
   const [transition, setTransition] = useState(true);
 
-  // 🔄 Auto Slide
+  
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();

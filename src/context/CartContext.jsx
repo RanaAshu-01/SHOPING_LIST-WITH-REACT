@@ -13,13 +13,22 @@ const CartProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("All");
   const [showPopUp, setShowPopUp] = useState(false)
-  const [loader, setLoader] = useState(false)
+  const [loader, setLoader] = useState(true)
   const [accountOpen, setAccountOpen] = useState(false)
   const [showData, setShowData] = useState("")
   const API_KEY = "e4c4f3066f2d4aa88020182710e8db2a"
   const navigate = useNavigate()
 
 
+
+useEffect(() => {
+  if (users && users.length > 0 && slidesData && slidesData.length > 0 && autoScrollImages && autoScrollImages.length > 0  ) {
+    setLoader(false);
+  } else {
+    setLoader(true);
+    
+  }
+}, [users, slidesData, autoScrollImages]);
 
 
 
@@ -33,26 +42,20 @@ const CartProvider = ({ children }) => {
           const res = await fetch(
             `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=${API_KEY}`
           );
-
           const data = await res.json();
 
           if (data.results.length > 0) {
-
             const finalData = [
               data.results[0].components.suburb,
               data.results[0].components.city,
               data.results[0].components.postcode
-            ]
+            ];
 
             const locationText = finalData.filter(Boolean).join(", ");
-
-
-            setShowData(locationText)
-
+            setShowData(locationText);
           } else {
             console.log("No location found");
           }
-
         } catch (error) {
           console.log("Error:", error);
         }
@@ -61,7 +64,7 @@ const CartProvider = ({ children }) => {
         console.log("Location error:", error.message);
       }
     );
-  }, [])
+  }, []);
 
 
   const [cartItems, setCartItems] = useState(() => {
@@ -161,12 +164,12 @@ const CartProvider = ({ children }) => {
   };
 
   const handleNavigate = (items) => {
-    if (items.product === "Mobile Offers"){
+    if (items.product === "Mobile Offers") {
       navigate("/mobile")
-    }else if (items.product === "Electronics Offers"){
+    } else if (items.product === "Electronics Offers") {
       navigate("/electronics")
-    }else if (items.product === "Fashion Offers"){
-        navigate("/fashion")
+    } else if (items.product === "Fashion Offers") {
+      navigate("/fashion")
     }
   }
 

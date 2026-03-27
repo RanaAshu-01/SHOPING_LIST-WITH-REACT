@@ -78,17 +78,17 @@ const Footer = () => {
                     <h3 className="font-bold text-lg mb-3">Legal</h3>
                     <ul id='all' className="space-y-2 ">
                         <li className={liStyle}>
-                            <a href="/terms-of-service" className="hover:underline">Terms of Service</a>
+                            <Link to="/terms-of-service" className="hover:underline">Terms of Service</Link>
                         </li>
                         <li className={liStyle}>
-                            <a href="/privacy-policy" className="hover:underline">Privacy Policy</a>
+                            <Link to="/privacy-policy" className="hover:underline">Privacy Policy</Link>
                         </li>
                         <li className={liStyle}>
-                            <a href="/cookie-policy" className="hover:underline">Cookie Policy</a>
+                            <Link to="/cookie-policy" className="hover:underline">Cookie Policy</Link>
                         </li>
 
                         <li className={liStyle}>
-                            <a href="/licenses" className="hover:underline">Licenses</a>
+                            <Link to="/licenses" className="hover:underline">Licenses</Link>
                         </li>
 
                     </ul>

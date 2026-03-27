@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { ShoppingCart } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Card = ({ id, image, title, price }) => {
 
-  const { addToCart, cartItems } = useContext(CartContext);
+  const { addToCart, cartItems, user } = useContext(CartContext);
   const isCart = cartItems.some((item) => item.id === id);
+
+  const navigate = useNavigate()
 
   return (
     <div className="bg-white rounded-xl shadow-md hover:shadow-xl hover:scale-101 transition duration-300  w-full p-3">
@@ -76,6 +78,9 @@ const Card = ({ id, image, title, price }) => {
 
           <div className="flex gap-1 text-[10px] sm:text-xs">
             <div
+              onClick={() => {
+                !user ? navigate("/login ") : ""
+              }}
               className="
                flex flex-col justify-center items-center
                border rounded-md px-6 
@@ -93,6 +98,9 @@ const Card = ({ id, image, title, price }) => {
 
 
             <div
+              onClick={() => {
+                !user ? navigate("/login ") : ""
+              }}
               className="
                flex flex-col justify-center items-center
                border rounded-md px-6 
