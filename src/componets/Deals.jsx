@@ -11,7 +11,7 @@ const Deals = () => {
         return shuffled.slice(0, n);
     }
 
-    const deals = users ? getRandomProducts(users, 4) : [];
+    const deals = users ? getRandomProducts(users, 6) : [];
 
     return (
         <div className="bg-gray-100 py-12 mt-8 px-6">
