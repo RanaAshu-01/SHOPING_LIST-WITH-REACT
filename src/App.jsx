@@ -33,6 +33,11 @@ import CategoryNavbar from "./componets/CategoryNavbar";
 import Mobile from "./componets/Mobile";
 import ElectronicItems from "./componets/ElectronicItems";
 import Fashion from "./componets/Fashion";
+import Books from "./pages/Books";
+import Toys from "./pages/Toys";
+import Beauty from "./pages/Beauty";
+import FoodHealth from "./pages/Food&Health";
+import Furniture from "./pages/Furniture";
 
 
 
@@ -90,6 +95,11 @@ const App = () => {
         <Route path="/mobile" element={<Mobile />} />
         <Route path="/electronics" element={<ElectronicItems />} />
         <Route path="/fashion" element={<Fashion />} />
+        <Route path="/books" element={<Books />} />
+        <Route path="/toys" element={<Toys />} />
+        <Route path="/beauty" element={<Beauty />} />
+        <Route path="/food & health" element={<FoodHealth />} />
+        <Route path="/furniture" element={<Furniture />} />
       </Routes>
 
       <Footer />

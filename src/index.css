@@ -48,3 +48,13 @@
 .animate-slideOut {
   animation: slideOut 1.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
+}
