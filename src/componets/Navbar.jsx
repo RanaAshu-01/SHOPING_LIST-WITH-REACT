@@ -50,6 +50,7 @@ const Navbar = () => {
 
             {/* Category */}
             <select
+              id="select"
               className="hidden sm:block text-black text-xs px-2 bg-gray-100 p-3 outline-none cursor-pointer"
 
               value={category}
@@ -69,6 +70,7 @@ const Navbar = () => {
 
             {/* Input */}
             <input
+              id="input"
               type="text"
               placeholder="Search for products, brands and more..."
               className="flex-1 text-black px-2 sm:px-3 text-xs sm:text-sm outline-none"
