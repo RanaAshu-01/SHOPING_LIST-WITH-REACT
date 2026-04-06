@@ -1,7 +1,7 @@
 // componets/Shipping.jsx
 const Shipping = () => {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6 mt-10 xl:mt-0">
       <div className="bg-white shadow-lg rounded-2xl p-8 max-w-3xl w-full">
         <h1 className="text-4xl font-bold text-green-500 mb-6 text-center">Shipping Information</h1>
 

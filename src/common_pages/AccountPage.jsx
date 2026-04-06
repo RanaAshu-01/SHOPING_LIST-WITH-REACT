@@ -13,7 +13,7 @@ const Account = () => {
     return (
         <>
             {user ? (
-                <div className="min-h-screen bg-gray-100 p-4 flex flex-col">
+                <div className="min-h-screen bg-gray-100 p-4 flex flex-col mt-10 xl:mt-0">
 
                     {/* 🔥 Header */}
                     <h1 className="text-2xl font-bold mb-4">My Account</h1>

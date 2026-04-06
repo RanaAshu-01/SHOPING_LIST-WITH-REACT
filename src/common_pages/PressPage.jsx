@@ -22,7 +22,7 @@ const Press = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8 flex flex-col items-center">
+    <div className="min-h-screen bg-gray-100 p-8 flex flex-col items-center mt-10 xl:mt-0">
       <h1 className="text-4xl font-bold text-green-500 mb-6">Press & News</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-5xl">

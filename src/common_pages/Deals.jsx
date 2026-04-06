@@ -14,7 +14,7 @@ const Deals = () => {
     const deals = users ? getRandomProducts(users, 6) : [];
 
     return (
-        <div className="bg-gray-100 py-12 mt-8 px-6">
+        <div className="bg-gray-100 py-12 mt-8 px-6 mt-10 xl:mt-0">
             {/* Section Header */}
             <div className="max-w-7xl mx-auto mb-8 text-center">
                 <div className='flex items-center justify-center gap-3'>

@@ -1,7 +1,7 @@
 // componets/Career.jsx
 const Career = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start p-8 bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-start p-8 bg-gray-100 mt-10 xl:mt-0">
       <h1 className="text-4xl font-bold text-green-500 mb-6">Careers at Shopping List</h1>
       
       <p className="text-lg text-gray-700 mb-4 text-center max-w-2xl">
