@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
-import Card from "./TempCard";
-import HeroSection from './HeroSection';
+import Card from "../componets/common/TempCard";
+import HeroSection from '../componets/common/FashinHeroSection';
 
 const Fashion = () => {
    const { users } = useContext(CartContext)

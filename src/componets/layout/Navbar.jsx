@@ -1,6 +1,6 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "../../context/CartContext";
 import { MapPin, CircleUser, Flame, ShoppingCart, House } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -11,7 +11,7 @@ const Navbar = () => {
   const { t, i18n } = useTranslation();
   const { searchTerm, setSearchTerm, cartItems, category, setCategory, setShowPopUp, showData, user } = useContext(CartContext);
 
-  const showPopUp = () => {
+  const handleShowPopUp = () => {
     setShowPopUp(true)
   }
 
@@ -87,7 +87,7 @@ const Navbar = () => {
 
 
           <div
-            onClick={() => navigate("/Accounts")}
+            onClick={() => navigate("/accounts")}
             className="hidden xl:flex flex-col text-xs leading-tight cursor-pointer hover:border p-1 rounded">
             <span className="text-gray-300">{t("welcome")}, {user?.name || "Guest"}</span>
             <span className="font-semibold">Account & Lists</span>
@@ -179,7 +179,7 @@ const Navbar = () => {
                 </Link>
               ) : (
                 <button
-                  onClick={showPopUp}
+                  onClick={setShowPopUp}
                   className="
             text-xs sm:text-sm 
             bg-red-500 
@@ -235,7 +235,7 @@ const Navbar = () => {
         </NavLink>
 
         <NavLink
-          to="/Accounts"
+          to="/accounts"
           className={({ isActive }) =>
             isActive ? "flex flex-col items-center text-xs text-green-600 cursor-pointer" : "cursor-pointer flex flex-col items-center text-xs"
           }>

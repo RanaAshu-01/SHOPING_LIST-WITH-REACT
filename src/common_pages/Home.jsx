@@ -1,12 +1,12 @@
-import Card from "./TempCard";
-import Filter from "./Filter";
+import Card from "../componets/common/TempCard";
+import Filter from "../componets/common/Filter";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../context/CartContext";
-import AutoScroll from "./AutoScroll";
-import BannerSlider from "./BannerSlider";
+import AutoScroll from "../componets/common/AutoScroll";
+import BannerSlider from "../componets/common/BannerSlider";
 
 
-const MainSection = () => {
+const Home = () => {
 
 
   const [brands, setBrands] = useState([])
@@ -106,4 +106,4 @@ const MainSection = () => {
   );
 };
 
-export default MainSection;
+export default Home;

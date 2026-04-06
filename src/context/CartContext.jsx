@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import users from "../data/data";
 import slidesData from "../data/slideData";
-import autoScrollImages from "../data/autoScrollImages";
+import autoScrollImages from "../data/autoScrollImages.js";
 import { useNavigate } from "react-router-dom";
 
 
@@ -16,19 +16,20 @@ const CartProvider = ({ children }) => {
   const [loader, setLoader] = useState(true)
   const [accountOpen, setAccountOpen] = useState(false)
   const [showData, setShowData] = useState("")
-  const API_KEY = "e4c4f3066f2d4aa88020182710e8db2a"
+  const [showEdit, setShowEdit] = useState(false)
   const navigate = useNavigate()
+  const API_KEY = "e4c4f3066f2d4aa88020182710e8db2a"
 
 
 
-useEffect(() => {
-  if (users && users.length > 0 && slidesData && slidesData.length > 0 && autoScrollImages && autoScrollImages.length > 0  ) {
-    setLoader(false);
-  } else {
-    setLoader(true);
-    
-  }
-}, [users, slidesData, autoScrollImages]);
+  useEffect(() => {
+    if (users && users.length > 0 && slidesData && slidesData.length > 0 && autoScrollImages && autoScrollImages.length > 0) {
+      setLoader(false);
+    } else {
+      setLoader(true);
+
+    }
+  }, [users, slidesData, autoScrollImages]);
 
 
 
@@ -174,10 +175,12 @@ useEffect(() => {
   }
 
 
+  
+
 
   return (
     <CartContext.Provider
-      value={{ cartItems, setCartItems, addToCart, increaseQty, decreaseQty, removeItem, setCategory, category, showPopUp, setShowPopUp, setLoader, loader, accountOpen, setAccountOpen, handleLogoutAccount, showData, setUser, user, setSearchTerm, searchTerm, users, handleDeals, handlePayment, slidesData, autoScrollImages, handleNavigate }}
+      value={{ cartItems, setCartItems, addToCart, increaseQty, decreaseQty, removeItem, setCategory, category, showPopUp, setShowPopUp, setLoader, loader, accountOpen, setAccountOpen, handleLogoutAccount, showData, setUser, user, setSearchTerm, searchTerm, users, handleDeals, handlePayment, slidesData, autoScrollImages, handleNavigate, showEdit, setShowEdit }}
     >
       {children}
     </CartContext.Provider>

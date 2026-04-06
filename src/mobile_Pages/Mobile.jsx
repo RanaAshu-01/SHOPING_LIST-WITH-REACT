@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../context/CartContext'
-import Card from "./TempCard";
+import Card from "../componets/common/TempCard";
 
 const Mobile = () => {
 

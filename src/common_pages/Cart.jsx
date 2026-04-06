@@ -3,7 +3,7 @@ import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import emptyCartAnimation from "../assets/animations/empty.json";
-import CountUp from "../componets/CountUp"
+import CountUp from "../componets/common/CountUp"
 
 
 

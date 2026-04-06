@@ -6,41 +6,62 @@ import LoginSingUp from "../assets/animations/Login and Sign up.json";
 
 const Account = () => {
 
-    const { handleLogoutAccount, showData, user } = useContext(CartContext)
+    const { handleLogoutAccount, showData, user, setShowEdit } = useContext(CartContext)
 
     const navigate = useNavigate()
 
     return (
         <>
             {user ? (
-                <div className="min-h-screen bg-gray-100 p-4 flex flex-col ">
+                <div className="min-h-screen bg-gray-100 p-4 flex flex-col">
 
                     {/* 🔥 Header */}
                     <h1 className="text-2xl font-bold mb-4">My Account</h1>
 
                     {/* 🔥 User Card */}
                     <div className="bg-white rounded-xl shadow p-4 flex flex-col gap-3">
+                        <div className="xl:flex xl:justify-between">
+                            <div>
+                                <div>
+                                    <p className="text-gray-500 text-sm">Name</p>
+                                    <p className="font-semibold text-lg">{user?.name}</p>
+                                </div>
 
-                        <div>
-                            <p className="text-gray-500 text-sm">Name</p>
-                            <p className="font-semibold text-lg">{user?.name}</p>
+
+                                <div>
+                                    <p className="text-gray-500 text-sm">Email</p>
+                                    <p className="font-semibold">{user?.email}</p>
+                                </div>
+
+                                <div>
+                                    <p className="text-gray-500 text-sm">Phone</p>
+                                    <p className="font-semibold">{user?.phone}</p>
+                                </div>
+
+                                <div>
+                                    <p className="text-gray-500 text-sm">Address</p>
+
+                                    {showData ? (
+                                        <p className="font-semibold">{showData}</p>
+                                    ) : (
+                                        <p className="font-semibold text-gray-400 animate-pulse">
+                                            Loading...
+                                        </p>
+                                    )}
+                                </div>
+
+                            </div>
+
+                            <div>
+                                <div
+                                    onClick={() => setShowEdit(true)}
+                                    className="w-fit bg-green-500 text-white py-2 px-8 rounded-xl font-semibold hover:bg-green-600 active:scale-95 transition shadow mt-10 xl:mt-0"
+                                >
+                                    Edit
+                                </div>
+                            </div>
+
                         </div>
-
-                        <div>
-                            <p className="text-gray-500 text-sm">Email</p>
-                            <p className="font-semibold">{user?.email}</p>
-                        </div>
-
-                        <div>
-                            <p className="text-gray-500 text-sm">Phone</p>
-                            <p className="font-semibold">{"***********"}</p>
-                        </div>
-
-                        <div>
-                            <p className="text-gray-500 text-sm">Address</p>
-                            <p className="font-semibold">{showData}</p>
-                        </div>
-
                         <button
                             onClick={handleLogoutAccount}
                             className="w-fit bg-red-500 text-white py-2 px-4 rounded-xl font-semibold hover:bg-red-600 active:scale-95 transition shadow self-end"
