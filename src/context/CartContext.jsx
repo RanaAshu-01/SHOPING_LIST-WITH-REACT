@@ -3,7 +3,7 @@ import users from "../data/data";
 import slidesData from "../data/slideData";
 import autoScrollImages from "../data/autoScrollImages.js";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
 
 export const CartContext = createContext();
 
@@ -82,6 +82,7 @@ const CartProvider = ({ children }) => {
   const handleLogoutAccount = () => {
     localStorage.removeItem("user")
     setUser(null)
+    toast.info("Logged out successfully 👋");
   }
 
 
@@ -134,8 +135,8 @@ const CartProvider = ({ children }) => {
     );
   };
 
-  const removeItem = (id) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  const removeItem = (product) => {
+    setCartItems((prev) => prev.filter((item) => item.id !== product.id));
   };
 
 
@@ -175,7 +176,7 @@ const CartProvider = ({ children }) => {
   }
 
 
-  
+
 
 
   return (

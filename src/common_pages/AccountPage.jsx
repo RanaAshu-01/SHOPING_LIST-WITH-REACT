@@ -55,7 +55,7 @@ const Account = () => {
                             <div>
                                 <div
                                     onClick={() => setShowEdit(true)}
-                                    className="w-fit bg-green-500 text-white py-2 px-8 rounded-xl font-semibold hover:bg-green-600 active:scale-95 transition shadow mt-10 xl:mt-0"
+                                    className="w-fit cursor-pointer bg-green-500 text-white py-2 px-8 rounded-xl font-semibold hover:bg-green-600 active:scale-95 transition shadow mt-10 xl:mt-0"
                                 >
                                     Edit
                                 </div>
@@ -64,7 +64,7 @@ const Account = () => {
                         </div>
                         <button
                             onClick={handleLogoutAccount}
-                            className="w-fit bg-red-500 text-white py-2 px-4 rounded-xl font-semibold hover:bg-red-600 active:scale-95 transition shadow self-end"
+                            className="w-fit bg-red-500 cursor-pointer text-white py-2 px-4 rounded-xl font-semibold hover:bg-red-600 active:scale-95 transition shadow self-end"
 
                         >
                             Log Out

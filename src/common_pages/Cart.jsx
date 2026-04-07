@@ -79,7 +79,7 @@ const CartPage = () => {
                 <div className="flex items-center justify-between w-36 mx-auto mb-4 bg-gray-100 rounded-full px-3 py-1 shadow-sm">
                   <button
                     onClick={() => decreaseQty(item?.id)}
-                    className="w-8 h-8 flex items-center justify-center rounded-full bg-white shadow hover:bg-red-100 text-lg font-bold transition"
+                    className="w-8 h-8 flex items-center cursor-pointer justify-center rounded-full bg-white shadow hover:bg-red-100 text-lg font-bold transition"
                   >
                     −
                   </button>
@@ -90,15 +90,15 @@ const CartPage = () => {
 
                   <button
                     onClick={() => increaseQty(item?.id)}
-                    className="w-8 h-8 flex items-center justify-center rounded-full bg-white shadow hover:bg-green-100 text-lg font-bold transition"
+                    className="w-8 h-8 flex cursor-pointer items-center justify-center rounded-full bg-white shadow hover:bg-green-100 text-lg font-bold transition"
                   >
                     +
                   </button>
                 </div>
 
                 <button
-                  onClick={() => removeItem(item?.id)}
-                  className="mt-2 px-4 py-2 bg-red-500 text-white rounded-lg font-semibold hover:bg-red-600 transition shadow-md"
+                  onClick={() => removeItem(item)}
+                  className="mt-2 px-4 py-2 cursor-pointer bg-red-500 text-white rounded-lg font-semibold hover:bg-red-600 transition shadow-md"
                 >
                   Remove
                 </button>

@@ -8,7 +8,8 @@ import { auth } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { Eye } from "lucide-react";
-  import Loader from "../componets/common/Loader";
+import Loader from "../componets/common/Loader";
+import { toast } from "react-toastify";
 
 
 
@@ -42,7 +43,7 @@ const LoginPage = () => {
       return setError("invalid password...");
     }
 
-    
+
 
     try {
       const userCredential = await signInWithEmailAndPassword(
@@ -71,6 +72,21 @@ const LoginPage = () => {
         setUser(userData);
 
         navigate("/");
+        
+        toast.success(`👋 Welcome back, ${userData.name}`, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeButton: false,
+          style: {
+            background: "linear-gradient(135deg, #667eea, #764ba2)",
+            color: "#fff",
+            borderRadius: "12px",
+            padding: "12px 16px",
+            fontSize: "14px",
+            fontWeight: "500"
+          }
+        });
 
       } else {
         setError("User data not found...");
@@ -95,7 +111,7 @@ const LoginPage = () => {
 
   return (
     <>
-    
+
 
       <div className="min-h-screen bg-gray-100 flex flex-col sm:flex-row items-center justify-center p-4 gap-8">
 

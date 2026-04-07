@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
+import { toast, Slide, Zoom, Bounce} from 'react-toastify';
 
 const LogoutPopUp = () => {
 
     const { showPopUp, setShowPopUp, setUser } = useContext(CartContext)
-   ;
+   
 
 
 
@@ -12,6 +13,8 @@ const LogoutPopUp = () => {
         setUser(null)
         localStorage.removeItem("user")
         setShowPopUp(false)
+        toast.info("Logged out successfully")
+
     }
 
     return (
