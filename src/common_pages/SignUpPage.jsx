@@ -16,7 +16,7 @@ const SignUpPage = () => {
 
 
     const nameRegex = /^[A-Za-z ]{3,}$/;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.(com|in|org|net)$/;
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
     const phoneRegex = /^[6-9]\d{9}$/
 
@@ -31,7 +31,9 @@ const SignUpPage = () => {
     const [loader, setLoader] = useState(false)
     const [showPopup, setShowPopup] = useState(false);
 
-
+    const finalEmail = emailRegex.test(email)
+    const finalPhone = phoneRegex.test(phone)
+    const finalPass = password.trim() === confirmPassword.trim() && password.length >=1 && confirmPassword.length >= 1 && passwordRegex.test(password,confirmPassword)
 
     const handleSignup = async (e) => {
         e.preventDefault()
@@ -142,26 +144,63 @@ const SignUpPage = () => {
                     {/* Email */}
                     <div>
                         <label className="block text-gray-700 mb-1 font-medium">Email</label>
-                        <input
-                            type="email"
-                            placeholder="Enter your email"
-                            className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                        <div className='relative'>
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
 
-                        />
+                            />
+
+                            {finalEmail && (
+                                <div className="absolute top-3 right-3 bg-green-800 text-white rounded-full p-1 animate-pop">
+                                    <svg width="10" height="10" viewBox="0 0 24 24">
+                                        <path
+                                            d="M5 13l4 4L19 7"
+                                            fill="none"
+                                            stroke="white"
+                                            strokeWidth="3"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            className="tick-path"
+                                        />
+                                    </svg>
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     <div>
                         <label className="block text-gray-700 mb-1 font-medium">Phone</label>
-                        <input
-                            type="number"
-                            placeholder="Enter your mobile number"
-                            className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500"
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
 
-                        />
+                        <div className='relative'>
+                            <input
+                                type="number"
+                                placeholder="Enter your mobile number"
+                                className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500"
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
+
+                            />
+
+                            {finalPhone && (
+                                <div className="absolute top-3 right-3 bg-green-800 text-white rounded-full p-1 animate-pop">
+                                    <svg width="10" height="10" viewBox="0 0 24 24">
+                                        <path
+                                            d="M5 13l4 4L19 7"
+                                            fill="none"
+                                            stroke="white"
+                                            strokeWidth="3"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            className="tick-path"
+                                        />
+                                    </svg>
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     {/* Password */}
@@ -176,6 +215,23 @@ const SignUpPage = () => {
                                 onChange={(e) => setPassword(e.target.value)}
 
                             />
+
+                            {finalPass && (
+                                <div className="absolute top-3 right-10 bg-green-800 text-white rounded-full p-1 animate-pop">
+                                    <svg width="10" height="10" viewBox="0 0 24 24">
+                                        <path
+                                            d="M5 13l4 4L19 7"
+                                            fill="none"
+                                            stroke="white"
+                                            strokeWidth="3"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            className="tick-path"
+                                        />
+                                    </svg>
+                                </div>
+                            )}
+
                             <span className='absolute top-2 right-2 text-gray-700 cursor-pointer'
                                 onClick={() => {
                                     if (showPassword === "password") {
@@ -203,6 +259,22 @@ const SignUpPage = () => {
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
                             />
+
+                            {finalPass && (
+                                <div className="absolute top-3 right-10 bg-green-800 text-white rounded-full p-1 animate-pop">
+                                    <svg width="10" height="10" viewBox="0 0 24 24">
+                                        <path
+                                            d="M5 13l4 4L19 7"
+                                            fill="none"
+                                            stroke="white"
+                                            strokeWidth="3"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            className="tick-path"
+                                        />
+                                    </svg>
+                                </div>
+                            )}
 
                             <span className='absolute top-2 right-2 text-gray-700 cursor-pointer'
                                 onClick={() => {

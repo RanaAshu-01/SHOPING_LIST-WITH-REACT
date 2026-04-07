@@ -96,7 +96,7 @@ const EditPopUp = () => {
   return (
     <>
       {showEdit && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm mt-30 xl:mt-0">
           <form onSubmit={handleUpdate}>
             <div className="bg-white min-w-[55vh] max-w-full p-6 rounded-2xl shadow-lg mx-12">
               <h2 className="text-xl font-semibold mb-4 text-center">Edit Details</h2>

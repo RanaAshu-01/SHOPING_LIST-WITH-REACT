@@ -27,8 +27,8 @@ const LoginPage = () => {
 
 
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
+  const emailRegex = /^[^\s@]+@[^\s@]+\.(com|in|org|net)$/;
+  const finalEmail = emailRegex.test(email);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -38,6 +38,7 @@ const LoginPage = () => {
     if (!emailRegex.test(cleanEmail)) {
       return setError("Enter valid email...");
     }
+
 
     if (password.length < 6) {
       return setError("invalid password...");
@@ -72,7 +73,7 @@ const LoginPage = () => {
         setUser(userData);
 
         navigate("/");
-        
+
         toast.success(`👋 Welcome back, ${userData.name}`, {
           position: "top-right",
           autoClose: 2000,
@@ -151,14 +152,34 @@ const LoginPage = () => {
 
           <div>
             <label className="block text-gray-700 mb-1 font-medium">Email</label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+            <div className="relative">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+
+
+              {finalEmail && (
+                <div className="absolute top-3 right-3 bg-green-800 text-white rounded-full p-1 animate-pop">
+                  <svg width="10" height="10" viewBox="0 0 24 24">
+                    <path
+                      d="M5 13l4 4L19 7"
+                      fill="none"
+                      stroke="white"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="tick-path"
+                    />
+                  </svg>
+                </div>
+              )}
+
+            </div>
           </div>
 
           <div>

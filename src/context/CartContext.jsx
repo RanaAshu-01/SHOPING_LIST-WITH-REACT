@@ -23,7 +23,7 @@ const CartProvider = ({ children }) => {
 
 
   useEffect(() => {
-    if (users && users.length > 0 && slidesData && slidesData.length > 0 && autoScrollImages && autoScrollImages.length > 0) {
+    if (users && users.length > 0 && slidesData && slidesData.length > 2 && autoScrollImages && autoScrollImages.length > 5) {
       setLoader(false);
     } else {
       setLoader(true);
