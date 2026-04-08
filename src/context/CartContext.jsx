@@ -1,9 +1,11 @@
 import { createContext, useState, useEffect } from "react";
-import users from "../data/data";
+import data from "../data/data";
 import slidesData from "../data/slideData";
 import autoScrollImages from "../data/autoScrollImages.js";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { LogOut } from 'lucide-react';
+
 
 export const CartContext = createContext();
 
@@ -19,17 +21,25 @@ const CartProvider = ({ children }) => {
   const [showEdit, setShowEdit] = useState(false)
   const navigate = useNavigate()
   const API_KEY = "e4c4f3066f2d4aa88020182710e8db2a"
-
+  const [products, setProducts] = useState([]);
 
 
   useEffect(() => {
-    if (users && users.length > 0 && slidesData && slidesData.length > 2 && autoScrollImages && autoScrollImages.length > 5) {
+    fetch("https://dummyjson.com/products?limit=194")
+      .then(res => res.json())
+      .then(data => setProducts(data.products));
+  }, []);
+
+  console.log(products)
+
+  useEffect(() => {
+    if (data && data.length > 0 && slidesData && slidesData.length > 2 && autoScrollImages && autoScrollImages.length > 5 && products && products.length > 2) {
       setLoader(false);
     } else {
       setLoader(true);
 
     }
-  }, [users, slidesData, autoScrollImages]);
+  }, [data, slidesData, autoScrollImages, products]);
 
 
 
@@ -82,7 +92,11 @@ const CartProvider = ({ children }) => {
   const handleLogoutAccount = () => {
     localStorage.removeItem("user")
     setUser(null)
-    toast.info("Logged out successfully 👋");
+    toast.info(
+      <div className="flex items-center gap-2">
+        <LogOut size={18} />
+        <span>Logged out successfully</span>
+      </div>);
   }
 
 
@@ -181,7 +195,7 @@ const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, setCartItems, addToCart, increaseQty, decreaseQty, removeItem, setCategory, category, showPopUp, setShowPopUp, setLoader, loader, accountOpen, setAccountOpen, handleLogoutAccount, showData, setUser, user, setSearchTerm, searchTerm, users, handleDeals, handlePayment, slidesData, autoScrollImages, handleNavigate, showEdit, setShowEdit }}
+      value={{ cartItems, products, setCartItems, addToCart, increaseQty, decreaseQty, removeItem, setCategory, category, showPopUp, setShowPopUp, setLoader, loader, accountOpen, setAccountOpen, handleLogoutAccount, showData, setUser, user, setSearchTerm, searchTerm, data, handleDeals, handlePayment, slidesData, autoScrollImages, handleNavigate, showEdit, setShowEdit }}
     >
       {children}
     </CartContext.Provider>

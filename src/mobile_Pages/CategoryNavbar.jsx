@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  Handbag, Smartphone, Monitor, Shirt, Book,
+  Handbag, Smartphone, Monitor, Shirt, ShoppingBasket,
   SoapDispenserDroplet, Shapes, Coffee, Armchair
 } from "lucide-react";
 
@@ -10,7 +10,7 @@ const categories = [
   { path: "/mobile", label: "Mobile", icon: Smartphone },
   { path: "/electronics", label: "Electronics", icon: Monitor },
   { path: "/fashion", label: "Fashion", icon: Shirt },
-  { path: "/books", label: "Books", icon: Book },
+  { path: "/groceries", label: "Groceries", icon: ShoppingBasket },
   { path: "/beauty", label: "Beauty", icon: SoapDispenserDroplet },
   { path: "/toys", label: "Toys", icon: Shapes },
   { path: "/food-health", label: "Health", icon: Coffee },
@@ -23,7 +23,7 @@ const CategoryNavbar = () => {
   return (
     <div className="fixed left-0 w-full bg-gray-200 shadow-lg border-t xl:hidden z-50">
       
-      <div className="flex overflow-x-auto whitespace-nowrap gap-6 px-2 py-2 no-scrollbar relative">
+      <div className="flex overflow-x-auto whitespace-nowrap gap-8 px-3 py-2 no-scrollbar relative">
 
         {categories.map((cat, index) => {
           const Icon = cat.icon;

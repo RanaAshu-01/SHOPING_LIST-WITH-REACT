@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 const Navbar = () => {
   ''
   const { t, i18n } = useTranslation();
-  const { searchTerm, setSearchTerm, cartItems, category, setCategory, setShowPopUp, showData, user } = useContext(CartContext);
+  const { searchTerm, setSearchTerm, cartItems, category, setCategory, setShowPopUp, showData, user, products } = useContext(CartContext);
 
   const handleShowPopUp = () => {
     setShowPopUp(true)
@@ -64,7 +64,7 @@ const Navbar = () => {
               <option value={t("fashion")}>{t("fashion")}</option>
               <option value={t("mobiles")}>{t("mobiles")}</option>
               <option value={t("laptops")}>{t("laptops")}</option>
-              <option value={t("books")}>{t("books")}</option>
+              <option value={t("mobile-accessories")}>{t("Accessories")}</option>
 
             </select>
 

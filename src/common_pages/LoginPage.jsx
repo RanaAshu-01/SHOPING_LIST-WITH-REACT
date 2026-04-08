@@ -7,7 +7,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
-import { Eye } from "lucide-react";
+import { Eye, UserCheck } from "lucide-react";
 import Loader from "../componets/common/Loader";
 import { toast } from "react-toastify";
 
@@ -29,6 +29,11 @@ const LoginPage = () => {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.(com|in|org|net)$/;
   const finalEmail = emailRegex.test(email);
+
+   const playSound = () => {
+          const audio = new Audio("/loginPopUp.mp3");
+          audio.play();
+        };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -74,7 +79,11 @@ const LoginPage = () => {
 
         navigate("/");
 
-        toast.success(`👋 Welcome back, ${userData.name}`, {
+        toast.success(
+          <div className="flex items-center gap-2">
+            <UserCheck size={18} />
+            <span>Welcome back, {userData.name}</span>
+          </div>, {
           position: "top-right",
           autoClose: 2000,
           hideProgressBar: true,
@@ -88,6 +97,8 @@ const LoginPage = () => {
             fontWeight: "500"
           }
         });
+
+        playSound()
 
       } else {
         setError("User data not found...");

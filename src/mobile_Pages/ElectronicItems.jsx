@@ -5,15 +5,17 @@ import Card from "../componets/common/TempCard";
 
 
 const ElectronicItems = () => {
-    const { users } = useContext(CartContext)
+    const { products } = useContext(CartContext)
     const [userShuffled, setUserShuffled] = useState([])
 
 
-    const electronicsFilter = users.filter((item) => {
-        let matchElectronics = item.category?.includes("Electronics")
+    const electronicsFilter = products.filter((item) => {
+        const electronicsCategories = ["smartphones", "laptops", "mobile-accessories"];
+        let matchElectronics = electronicsCategories.includes(item.category)
 
         return matchElectronics
     })
+
     useEffect(() => {
         const Shuffled = electronicsFilter.sort(() => 0.5 - Math.random());
         setUserShuffled(Shuffled)
@@ -31,7 +33,7 @@ const ElectronicItems = () => {
                     <Card
                         key={elem.id}
                         id={elem.id}
-                        image={elem.image}
+                        image={elem.images[0]}
                         title={elem.title}
                         price={elem.price}
                     />

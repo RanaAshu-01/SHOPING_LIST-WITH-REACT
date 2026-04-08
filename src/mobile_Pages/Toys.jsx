@@ -1,20 +1,25 @@
 import { useNavigate } from "react-router-dom";
+import { Ban } from 'lucide-react';
 
 const Toys = () => {
-const navigate = useNavigate()
+  const navigate = useNavigate()
 
   return (
-      <div className="flex flex-col items-center justify-center h-screen bg-gray-100 text-center px-4">
-      
-      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
-        🚧 Page Under Development
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100 text-center px-4">
+
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3 flex justify-center items-center gap-2">
+
+        <span className="text-orange-500">
+          <Ban strokeWidth={2} />
+        </span>
+        Sorry items not available
       </h1>
 
       <p className="text-gray-600 mb-6">
-                We're currently working on Toys page.
-                <br />
-                It will be available soon. Stay tuned!
-            </p>
+        currently some items are missing.
+        <br />
+        It will be available soon. Stay tuned!
+      </p>
 
 
       <button

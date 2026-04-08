@@ -4,10 +4,11 @@ import Card from "../componets/common/TempCard";
 import HeroSection from '../componets/common/FashinHeroSection';
 
 const Fashion = () => {
-   const { users } = useContext(CartContext)
+   const { products } = useContext(CartContext)
 
-    const fashionFilter = users.filter((item) => {
-        let matchFashion = item.category?.includes("Fashion")
+    const fashionFilter = products.filter((item) => {
+        const fashionCategories = ["mens-shoes", "mens-shirts", "mens-watches", "womens-watches", "sunglasses", "tops"]
+        let matchFashion = fashionCategories.includes(item.category)
 
         return matchFashion
     })
@@ -23,7 +24,7 @@ const Fashion = () => {
                     <Card
                         key={elem.id}
                         id={elem.id}
-                        image={elem.image}
+                        image={elem.images[0]}
                         title={elem.title}
                         price={elem.price}
                     />

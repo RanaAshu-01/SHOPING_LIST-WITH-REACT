@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom';
 import { Flame } from 'lucide-react';
 
 const Deals = () => {
-    const { users, handleDeals } = useContext(CartContext);
+    const { data, handleDeals } = useContext(CartContext);
 
-    function getRandomProducts(users, n) {
-        const shuffled = [...users].sort(() => 0.5 - Math.random());
+    function getRandomProducts(data, n) {
+        const shuffled = [...data].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, n);
     }
 
-    const deals = users ? getRandomProducts(users, 6) : [];
+    const deals = data ? getRandomProducts(data, 6) : [];
 
     return (
-        <div className="bg-gray-100 py-12 mt-8 px-6 mt-10 xl:mt-0">
+        <div className="bg-gray-100 py-12  px-6 mt-10 xl:mt-0">
             {/* Section Header */}
             <div className="max-w-7xl mx-auto mb-8 text-center">
                 <div className='flex items-center justify-center gap-3'>

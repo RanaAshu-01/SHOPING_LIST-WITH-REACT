@@ -4,12 +4,12 @@ import Card from "../componets/common/TempCard";
 
 const Mobile = () => {
 
-    const { users } = useContext(CartContext)
+    const { products } = useContext(CartContext)
     const [userShuffled, setUserShuffled] = useState([])
 
 
-    const mobileFilter = users.filter((item) => {
-        let matchMobile = item.subCategory?.includes("Mobiles")
+    const mobileFilter = products.filter((item) => {
+        let matchMobile = item.category?.includes("smartphones")
 
         return matchMobile
     })
@@ -28,7 +28,7 @@ const Mobile = () => {
                     <Card
                         key={elem.id}
                         id={elem.id}
-                        image={elem.image}
+                        image={elem.images[0]}
                         title={elem.title}
                         price={elem.price}
                     />

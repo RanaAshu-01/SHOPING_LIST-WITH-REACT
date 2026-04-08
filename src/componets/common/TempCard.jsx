@@ -16,7 +16,7 @@ const Card = ({ id, image, title, price }) => {
       {/* Image */}
       <div className="w-full h-40 sm:h-48 md:h-56 overflow-hidden rounded-lg">
         <img
-          className="w-full h-full object-cover"
+          className="w-full h-48 object-contain"
           src={image}
           alt={title}
           loading="lazy"

@@ -9,7 +9,7 @@ import Account from "../common_pages/AccountPage";
 import Mobile from "../mobile_Pages/Mobile";
 import ElectronicItems from "../mobile_Pages/ElectronicItems";
 import Fashion from "../mobile_Pages/Fashion";
-import Books from "../mobile_Pages/Books";
+import Groceries from "../mobile_Pages/Groceries";
 import Toys from "../mobile_Pages/Toys";
 import Beauty from "../mobile_Pages/Beauty";
 import FoodHealth from "../mobile_Pages/Food&Health";
@@ -66,7 +66,7 @@ const AppRoutes = () => {
         <Route path="/mobile" element={<Mobile />} />
         <Route path="/electronics" element={<ElectronicItems />} />
         <Route path="/fashion" element={<Fashion />} />
-        <Route path="/books" element={<Books />} />
+        <Route path="/groceries" element={<Groceries />} />
         <Route path="/toys" element={<Toys />} />
         <Route path="/beauty" element={<Beauty />} />
         <Route path="/food-health" element={<FoodHealth />} />

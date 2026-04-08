@@ -100,8 +100,8 @@ const Filter = ({ setBrands, setPriceRange, setHighAndLow, highAndLow, brands, p
                                         <input
                                             type="checkbox"
                                             className="w-4 h-4 accent-yellow-500"
-                                            value="Redmi"
-                                            checked={brands.includes("Redmi")}
+                                            value="Realme"
+                                            checked={brands.includes("Realme")}
                                             onChange={(e) => {
                                                 const { value, checked } = e.target;
 
@@ -114,15 +114,15 @@ const Filter = ({ setBrands, setPriceRange, setHighAndLow, highAndLow, brands, p
                                                 });
                                             }}
                                         />
-                                        <span>Redmi</span>
+                                        <span>Realme</span>
                                     </label>
 
                                     <label className="flex items-center space-x-2 text-white">
                                         <input
                                             type="checkbox"
                                             className="w-4 h-4 accent-yellow-500"
-                                            value="Sony"
-                                            checked={brands.includes("Sony")}
+                                            value="Vivo"
+                                            checked={brands.includes("Vivo")}
                                             onChange={(e) => {
                                                 const { value, checked } = e.target;
 
@@ -135,7 +135,7 @@ const Filter = ({ setBrands, setPriceRange, setHighAndLow, highAndLow, brands, p
                                                 });
                                             }}
                                         />
-                                        <span>Sony</span>
+                                        <span>Vivo</span>
                                     </label>
 
                                 </div>
