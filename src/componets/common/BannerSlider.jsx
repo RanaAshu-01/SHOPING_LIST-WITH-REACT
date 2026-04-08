@@ -52,7 +52,7 @@ const BannerSlider = () => {
   }, [current]);
 
   return (
-   <div className="relative top-15 md:top-15 xl:top-0 w-full h-[50vh] sm:h-[60vh] md:h-[70vh] xl:h-[80vh] overflow-hidden">
+   <div className="relative top-15 md:top-15 xl:top-0 w-full h-full sm:h-[60vh] md:h-[70vh] xl:h-[80vh] overflow-hidden">
 
       {/* Slider Track */}
       <div
@@ -71,7 +71,7 @@ const BannerSlider = () => {
               onClick={ () => handleNavigate(slide)}
               src={slide.img}
               alt="banner"
-              className="w-full h-full object-cover object-center"
+              className="w-full object-cover"
             />
 
             {/* Overlay Text */}

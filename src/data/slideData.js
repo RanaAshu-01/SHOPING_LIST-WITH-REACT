@@ -19,12 +19,12 @@ const slidesData = [
         title: "",
         desc: "",
     },
-    {
-        product: "Mobile Offers",
-        img: "https://m.media-amazon.com/images/G/31/img23/Wireless/rohimak/SSG_Gamex/Premiumstore._SX1242_QL85_.jpg",
-        title: "",
-        desc: "",
-    },
+    // {
+    //     product: "Mobile Offers",
+    //     img: "https://m.media-amazon.com/images/G/31/img23/Wireless/rohimak/SSG_Gamex/Premiumstore._SX1242_QL85_.jpg",
+    //     title: "",
+    //     desc: "",
+    // },
 
 ];
 
