@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { LogOut } from 'lucide-react';
 
 
+
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {

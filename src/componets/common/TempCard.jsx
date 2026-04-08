@@ -3,7 +3,7 @@ import { CartContext } from "../../context/CartContext";
 import { ShoppingCart } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Card = ({ id, image, title, price }) => {
+const Card = ({ id, image, title, price, description }) => {
 
   const { addToCart, cartItems, user } = useContext(CartContext);
   const isCart = cartItems.some((item) => item.id === id);
@@ -29,7 +29,13 @@ const Card = ({ id, image, title, price }) => {
         <h2 className="text-sm sm:text-base font-semibold line-clamp-2">
           {title}
         </h2>
+        <h2 className="text-xs text-gray-400 sm:text-base font-semibold line-clamp-2">
+          {description}
+        </h2>
 
+        <p className="text-gray-500 line-through font-bold text-xs sm:text-base">
+          MRP:  ${price + 50}
+        </p>
         <p className="text-orange-500 font-bold text-sm sm:text-base">
           ${price}
         </p>

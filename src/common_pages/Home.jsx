@@ -104,6 +104,7 @@ const Home = () => {
                   image={elem.images[0]}
                   title={elem.title}
                   price={elem.price}
+                  description={elem.description}
                 />
               ))
             ) : (

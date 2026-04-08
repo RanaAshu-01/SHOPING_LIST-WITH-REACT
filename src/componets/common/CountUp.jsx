@@ -6,6 +6,7 @@ const CountUp = ({ targetAmount, duration = 1500 }) => {
     useEffect(() => {
         let start = 0;
         const increment = targetAmount / (duration / 20);
+
         const timer = setInterval(() => {
             start += increment;
             if (start >= targetAmount) {
@@ -18,7 +19,10 @@ const CountUp = ({ targetAmount, duration = 1500 }) => {
         return () => clearInterval(timer);
     }, [targetAmount, duration]);
 
-    return <span>{count}</span>;
+    // Indian comma formatting
+    const formattedCount = count.toLocaleString('en-IN');
+
+    return <span>{formattedCount}</span>;
 };
 
 export default CountUp;

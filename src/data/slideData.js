@@ -21,7 +21,7 @@ const slidesData = [
     },
     {
         product: "Mobile Offers",
-        img: "https://m-cdn.phonearena.com/images/hub/114-wide-two_1200/Black-Friday-phone-deals-2025-event-highlights.jpg",
+        img: "https://m.media-amazon.com/images/G/31/img23/Wireless/rohimak/SSG_Gamex/Premiumstore._SX1242_QL85_.jpg",
         title: "",
         desc: "",
     },

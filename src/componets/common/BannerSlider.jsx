@@ -52,7 +52,7 @@ const BannerSlider = () => {
   }, [current]);
 
   return (
-    <div className=" relative top-15  md:top-15 xl:top-0 w-full h-50 sm:h-75 overflow-hidden">
+   <div className="relative top-15 md:top-15 xl:top-0 w-full h-[50vh] sm:h-[60vh] md:h-[70vh] xl:h-[80vh] overflow-hidden">
 
       {/* Slider Track */}
       <div
@@ -71,7 +71,7 @@ const BannerSlider = () => {
               onClick={ () => handleNavigate(slide)}
               src={slide.img}
               alt="banner"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
 
             {/* Overlay Text */}
@@ -91,7 +91,7 @@ const BannerSlider = () => {
 
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-2 -translate-y-1/2 text-gray-300  p-2 rounded-full"
+        className="absolute top-1/2 left-2 -translate-y-1/2 text-gray-300  p-2 rounded-full cursor-pointer"
       >
         <ChevronLeft size={30} />
       </button>
@@ -99,7 +99,7 @@ const BannerSlider = () => {
 
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-2 -translate-y-1/2 text-gray-300  p-2 rounded-full"
+        className="absolute top-1/2 right-2 -translate-y-1/2 text-gray-300  p-2 rounded-full cursor-pointer"
       >
         <ChevronRight size={30} />
       </button>
