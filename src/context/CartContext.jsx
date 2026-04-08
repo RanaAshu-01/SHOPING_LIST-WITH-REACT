@@ -23,6 +23,11 @@ const CartProvider = ({ children }) => {
   const API_KEY = "e4c4f3066f2d4aa88020182710e8db2a"
   const [products, setProducts] = useState([]);
 
+  const playSound = () => {
+    const audio = new Audio("/loginPopUp.mp3");
+    audio.play();
+  };
+
 
   useEffect(() => {
     fetch("https://dummyjson.com/products?limit=194")
@@ -118,12 +123,45 @@ const CartProvider = ({ children }) => {
 
   const addToCart = (product) => {
     if (!product || !product.id) return;
-
     setCartItems((prev) => {
       const exists = prev.find((item) => item.id === product.id);
 
       if (exists) {
         return prev;
+
+      } else {
+        playSound()
+        toast.success(
+          <div className="flex items-center gap-3">
+
+            {/* Icon */}
+            <div className="bg-green-100 text-green-600 rounded-full p-2 text-lg">
+              🛒
+            </div>
+
+            {/* Text */}
+            <div>
+              <p className="text-sm font-semibold">Added to Cart</p>
+              <p className="text-xs text-gray-500">{product.title}</p>
+            </div>
+
+          </div>,
+          {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeButton: false,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "light",
+            style: {
+              borderRadius: "12px",
+              background: "#ffffff",
+              color: "#111827",
+              boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+            },
+          }
+        );
       }
 
       return [...prev, { ...product, quantity: 1 }];
