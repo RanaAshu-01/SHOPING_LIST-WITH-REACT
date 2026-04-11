@@ -1,21 +1,31 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
 import { MapPin, CircleUser, Flame, ShoppingCart, House } from 'lucide-react';
+import { useContext, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
-
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchLocation } from "../../redux/slices/getLocation";
 
 
 const Navbar = () => {
-  ''
-  const { t, i18n } = useTranslation();
-  const { searchTerm, setSearchTerm, cartItems, category, setCategory, setShowPopUp, showData, user, products } = useContext(CartContext);
 
-  const handleShowPopUp = () => {
-    setShowPopUp(true)
+  const { t, i18n } = useTranslation();
+  const { searchTerm, setSearchTerm, cartItems, category, setCategory, setShowPopUp, user } = useContext(CartContext);
+  const navigate = useNavigate()
+
+  const dispatch = useDispatch()
+  const { value } = useSelector(state => state.location);
+
+  useEffect(() => {
+    dispatch(fetchLocation());
+  }, []);
+
+
+
+  const handleRefresh = () => {
+    navigate("/")
   }
 
-  const navigate = useNavigate()
 
   return (
     <>
@@ -28,12 +38,17 @@ const Navbar = () => {
 
 
           {/* Logo */}
-          <Link
+          <NavLink
             to="/"
+            onClick={() => {
+              if (window.location.pathname === "/") {
+                window.location.reload();
+              }
+            }}
             className="text-xl font-bold tracking-wide rounded transition hover:border p-3 py-1.5"
           >
             🛍️ ShopZone
-          </Link>
+          </NavLink>
 
           {/* Mobile Welcome Text */}
           <div className="sm:hidden text-[10px] text-gray-300 leading-tight text-right ml-auto mr-3">
@@ -108,7 +123,7 @@ const Navbar = () => {
 
                 {/* Location */}
                 <p className="text-sm sm:text-base font-semibold text-white truncate">
-                  {showData || t("detectingLocation")}
+                  {value || t("detectingLocation")}
                 </p>
 
               </div>

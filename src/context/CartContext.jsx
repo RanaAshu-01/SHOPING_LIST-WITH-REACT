@@ -4,8 +4,8 @@ import slidesData from "../data/slideData";
 import autoScrollImages from "../data/autoScrollImages.js";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { LogOut } from 'lucide-react';
-
+import { setCartItems } from "../redux/slices/cartItems.js";
+import { useDispatch } from "react-redux";
 
 
 export const CartContext = createContext();
@@ -20,14 +20,18 @@ const CartProvider = ({ children }) => {
   const [accountOpen, setAccountOpen] = useState(false)
   const [showData, setShowData] = useState("")
   const [showEdit, setShowEdit] = useState(false)
-  const navigate = useNavigate()
-  const API_KEY = "e4c4f3066f2d4aa88020182710e8db2a"
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate()
+
+
+
+  const dispatch = useDispatch()
 
   const playSound = () => {
     const audio = new Audio("/loginPopUp.mp3");
     audio.play();
   };
+
 
 
   useEffect(() => {
@@ -36,7 +40,6 @@ const CartProvider = ({ children }) => {
       .then(data => setProducts(data.products));
   }, []);
 
-  console.log(products)
 
   useEffect(() => {
     if (data && data.length > 0 && slidesData && slidesData.length > 2 && autoScrollImages && autoScrollImages.length > 5 && products && products.length > 2) {
@@ -48,66 +51,30 @@ const CartProvider = ({ children }) => {
   }, [data, slidesData, autoScrollImages, products]);
 
 
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        const lat = position.coords.latitude;
-        const lng = position.coords.longitude;
-
-        try {
-          const res = await fetch(
-            `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=${API_KEY}`
-          );
-          const data = await res.json();
-
-          if (data.results.length > 0) {
-            const finalData = [
-              data.results[0].components.suburb,
-              data.results[0].components.city,
-              data.results[0].components.postcode
-            ];
-
-            const locationText = finalData.filter(Boolean).join(", ");
-            setShowData(locationText);
-          } else {
-            console.log("No location found");
-          }
-        } catch (error) {
-          console.log("Error:", error);
-        }
-      },
-      (error) => {
-        console.log("Location error:", error.message);
-      }
-    );
-  }, []);
-
-
   const [cartItems, setCartItems] = useState(() => {
     try {
-      const saved = localStorage.getItem("cartItems");
-      const parsed = saved ? JSON.parse(saved) : [];
-
-      return Array.isArray(parsed) ? parsed : [];
+      if (user) {
+        const saved = localStorage.getItem("cartItems");
+        const parsed = saved ? JSON.parse(saved) : [];
+        return Array.isArray(parsed) ? parsed : [];
+      } else {
+        const saved = sessionStorage.getItem("cartItems");
+        const parsed = saved ? JSON.parse(saved) : [];
+        return Array.isArray(parsed) ? parsed : [];
+      }
     } catch (error) {
       return [];
     }
   });
 
-  const handleLogoutAccount = () => {
-    localStorage.removeItem("user")
-    setUser(null)
-    toast.info(
-      <div className="flex items-center gap-2">
-        <LogOut size={18} />
-        <span>Logged out successfully</span>
-      </div>);
-  }
-
 
   useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    if (user) {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    } else {
+      sessionStorage.setItem("cartItems", JSON.stringify(cartItems))
+    }
+
   }, [cartItems]);
 
 
@@ -124,6 +91,8 @@ const CartProvider = ({ children }) => {
 
   const addToCart = (product) => {
     if (!product || !product.id) return;
+
+
     setCartItems((prev) => {
       const exists = prev.find((item) => item.id === product.id);
 
@@ -189,7 +158,15 @@ const CartProvider = ({ children }) => {
   };
 
   const removeItem = (product) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== product.id));
+    setCartItems((prev) => {
+      const updatedCart = prev.filter((item) => item.id !== product.id);
+
+      if (updatedCart.length === 0) {
+        navigate("/");
+      }
+
+      return updatedCart;
+    });
   };
 
 
@@ -234,7 +211,7 @@ const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, products, setCartItems, addToCart, increaseQty, decreaseQty, removeItem, setCategory, category, showPopUp, setShowPopUp, setLoader, loader, accountOpen, setAccountOpen, handleLogoutAccount, showData, setUser, user, setSearchTerm, searchTerm, data, handleDeals, handlePayment, slidesData, autoScrollImages, handleNavigate, showEdit, setShowEdit }}
+      value={{ cartItems, products, setCartItems, addToCart, increaseQty, decreaseQty, removeItem, setCategory, category, showPopUp, setShowPopUp, setLoader, loader, accountOpen, setAccountOpen, showData, setUser, user, setSearchTerm, searchTerm, data, handleDeals, handlePayment, slidesData, autoScrollImages, handleNavigate, showEdit, setShowEdit }}
     >
       {children}
     </CartContext.Provider>

@@ -3,12 +3,21 @@ import { CartContext } from "../../context/CartContext";
 import { ShoppingCart } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
+
 const Card = ({ id, image, title, price, description }) => {
+
+  
+
+
+
+
 
   const { addToCart, cartItems, user } = useContext(CartContext);
   const isCart = cartItems.some((item) => item.id === id);
 
   const navigate = useNavigate()
+
+  const mrpPrice = Number(price + 50).toFixed(2)
 
   return (
     <div className="bg-white rounded-xl shadow-md hover:shadow-xl hover:scale-101 transition duration-300  w-full p-3">
@@ -34,7 +43,7 @@ const Card = ({ id, image, title, price, description }) => {
         </h2>
 
         <p className="text-gray-500 line-through font-bold text-xs sm:text-base">
-          MRP:  ${price + 50}
+          MRP:  ${mrpPrice}
         </p>
         <p className="text-orange-500 font-bold text-sm sm:text-base">
           ${price}

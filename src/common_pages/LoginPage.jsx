@@ -8,7 +8,6 @@ import { auth } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { Eye, UserCheck } from "lucide-react";
-import Loader from "../componets/common/Loader";
 import { toast } from "react-toastify";
 
 
@@ -125,7 +124,7 @@ const LoginPage = () => {
     <>
 
 
-      <div className="min-h-screen bg-gray-100 flex flex-col sm:flex-row items-center justify-center p-4 gap-8">
+      <div className="min-h-screen bg-gray-100 flex flex-col sm:flex-row items-center justify-center p-4 gap-8 mt-10 xl:mt-0">
 
         {/* Animation */}
         <div className="flex justify-center w-full sm:w-1/2">

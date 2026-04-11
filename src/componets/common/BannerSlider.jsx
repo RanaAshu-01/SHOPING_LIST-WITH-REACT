@@ -52,7 +52,7 @@ const BannerSlider = () => {
   }, [current]);
 
   return (
-   <div className="relative top-15 md:top-15 xl:top-0 w-full h-full sm:h-[60vh] md:h-[70vh] xl:h-[80vh] overflow-hidden">
+   <div className="relative top-15 md:top-15 xl:top-0 w-full h-full overflow-hidden">
 
       {/* Slider Track */}
       <div

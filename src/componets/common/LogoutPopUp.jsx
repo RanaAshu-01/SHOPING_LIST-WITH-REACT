@@ -1,19 +1,27 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
-import { toast, Slide, Zoom, Bounce} from 'react-toastify';
+import { toast, Slide, Zoom, Bounce } from 'react-toastify';
+import { LogOut } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const LogoutPopUp = () => {
 
-    const { showPopUp, setShowPopUp, setUser } = useContext(CartContext)
-   
-
+    const { showPopUp, setShowPopUp, setUser, setCartItems } = useContext(CartContext)
+    const navigate = useNavigate();
 
 
     const handleLogout = () => {
+        navigate("/")
         setUser(null)
+        setCartItems([])
+        localStorage.removeItem("cartItems")
         localStorage.removeItem("user")
         setShowPopUp(false)
-        toast.info("Logged out successfully")
+        toast.info(
+            <div className="flex items-center gap-2">
+                <LogOut size={18} />
+                <span>Logged out successfully</span>
+            </div>);
 
     }
 
@@ -28,7 +36,7 @@ const LogoutPopUp = () => {
                         <div className="flex justify-center gap-3">
                             <button
                                 className="px-4 py-2 bg-gray-300 rounded"
-                                onClick={() => {setShowPopUp(false)}}
+                                onClick={() => { setShowPopUp(false) }}
                             >Cancel
                             </button>
 

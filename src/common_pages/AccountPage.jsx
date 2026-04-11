@@ -3,12 +3,14 @@ import { CartContext } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import LoginSingUp from "../assets/animations/Login and Sign up.json";
+import { useSelector } from "react-redux";
 
 const Account = () => {
 
-    const { handleLogoutAccount, showData, user, setShowEdit } = useContext(CartContext)
+    const { user, setShowEdit, setShowPopUp } = useContext(CartContext)
 
     const navigate = useNavigate()
+    const { value } = useSelector(state => state.location);
 
     return (
         <>
@@ -41,8 +43,8 @@ const Account = () => {
                                 <div>
                                     <p className="text-gray-500 text-sm">Address</p>
 
-                                    {showData ? (
-                                        <p className="font-semibold">{showData}</p>
+                                    {value ? (
+                                        <p className="font-semibold">{value}</p>
                                     ) : (
                                         <p className="font-semibold text-gray-400 animate-pulse">
                                             Loading...
@@ -63,7 +65,7 @@ const Account = () => {
 
                         </div>
                         <button
-                            onClick={handleLogoutAccount}
+                            onClick={() => setShowPopUp(true)}
                             className="w-fit bg-red-500 cursor-pointer text-white py-2 px-4 rounded-xl font-semibold hover:bg-red-600 active:scale-95 transition shadow self-end"
 
                         >

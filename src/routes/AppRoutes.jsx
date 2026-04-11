@@ -32,6 +32,7 @@ import OrderTracking from "../common_pages/OrderTracking"
 import GiftCards from "../common_pages/GiftCards"
 import PrivacyPolicy from "../common_pages/PrivacyPolicy"
 import TermsOfService  from "../common_pages/TermsOfService"
+import NotFound from "../common_pages/NotFound";
 
 const AppRoutes = () => {
   return (
@@ -61,6 +62,7 @@ const AppRoutes = () => {
         <Route path="/gift-cards" element={<GiftCards />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="*" element={<NotFound  />} />
         
 
         <Route path="/mobile" element={<Mobile />} />

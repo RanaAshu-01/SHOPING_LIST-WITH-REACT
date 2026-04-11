@@ -5,6 +5,7 @@ import Lottie from "lottie-react";
 import emptyCartAnimation from "../assets/animations/empty.json";
 import CountUp from "../componets/common/CountUp"
 import { Trash2, ShoppingCart, Flame } from "lucide-react";
+import { div } from "framer-motion/client";
 
 
 
@@ -18,39 +19,39 @@ const CartPage = () => {
     0
   );
 
- 
+
   return (
-    <div className="min-h-screen bg-gray-200 px-2 py-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div className="min-h-screen bg-gray-200 px-2 py-6 xl:flex gap-5" >
 
 
 
 
       {cartItems.length === 0 ? (
-        <div className="flex flex-col items-center  justify-center mt-20">
+          <div className="flex flex-col w-full self-center items-center mt-14 md:mt-40 xl:mt-0">
 
-          <div className="w-full h-64 flex flex-col items-center justify-center">
-            <Lottie
-              animationData={emptyCartAnimation}
-              loop={true}
-              className="w-48 h-48 sm:w-80 sm:h-80"
-            />
+            <div className="w-full h-64 flex flex-col items-center justify-center">
+              <Lottie
+                animationData={emptyCartAnimation}
+                loop={true}
+                className="w-48 h-48 sm:w-80 sm:h-80"
+              />
 
-            <p
-              className="text-lg font-semibold mt-4 text-gray-700 flex items-center gap-2"
+              <p
+                className="text-lg font-semibold mt-4 text-gray-700 flex items-center gap-2"
+              >
+                <ShoppingCart />  Your cart is empty!
+              </p>
+            </div>
+            <Link
+              to="/"
+              className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition sm:mt-20"
             >
-              <ShoppingCart />  Your cart is empty!
-            </p>
-          </div>
-          <Link
-            to="/"
-            className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition sm:mt-20"
-          >
-            Go Back to Home
-          </Link>
+              Go Back to Home
+            </Link>
 
-        </div>) : (
+          </div>) : (
 
-        <div className="pt-12 pb-2 rounded-md flex flex-col  gap-2 bg-white h-fit">
+        <div className="pt-12 pb-2 rounded-md bg-white h-fit grid grid-cols-1 gap-6">
 
           <div className="mb-6 flex flex-col justify-center items-center">
 
@@ -60,7 +61,7 @@ const CartPage = () => {
             </h2>
 
             <p className="text-gray-500 mt-1 text-xs md:text-base flex items-center">
-              
+
               Fast delivery • Secure checkout • Best prices guaranteed
             </p>
 
@@ -70,91 +71,92 @@ const CartPage = () => {
           {cartItems.map((item, index) => {
             if (!item) return null;
             return (
-              
-
-                <div
-                  key={item?.id || index}
-                  className="flex  transition py-1 px-2 pb-0  border-t  border-gray-300 "
-                >
-                  {/* Image */}
-                  <div className="w-20 h-20 shrink-0 bg-gray-100 rounded-xl flex items-center justify-center">
-                    <img
-                      src={item?.image}
-                      alt={item?.title}
-                      className="w-full h-full object-contain p-2"
-                    />
-                  </div>
-
-                  {/* Right Side */}
-                  <div className="flex flex-col flex-1 justify-between">
-
-                    {/* Top Section */}
-                    <div className="flex justify-between items-start gap-4">
-
-                      {/* Title + small info */}
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-gray-800 text-base leading-snug">
-                          {item?.title}
-                        </h4>
-
-                        <p className="text-gray-500 text-sm mt-1">
-                          {item?.quantity} pcs
-                        </p>
-
-                      </div>
-
-                      {/* Qty + Price */}
-                      <div className="flex flex-col items-end gap-2">
-
-                        {/* Quantity */}
-                        <div className="flex items-center bg-green-600 text-white rounded-lg overflow-hidden">
-                          <button
-                            onClick={() => decreaseQty(item?.id)}
-                            className="1 text-sm px-3  py-1 font-bold"
-                          >
-                            −
-                          </button>
-
-                          <span className="text-xs py-1">
-                            {item?.quantity}
-                          </span>
-
-                          <button
-                            onClick={() => increaseQty(item?.id)}
-                            className="text-sm px-3  py-1 font-bold"
-                          >
-                            +
-                          </button>
-                        </div>
-
-                        {/* Price */}
-                        <div className="flex gap-1 items-center">
-                          <p className="text-gray-800 line-through text-xs">
-                            $ {Number((item?.price + 50).toFixed(2))}
-                          </p>
-                          <p className="text-gray-800 font-semibold text-sm">
-                            ${item?.price}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Bottom Remove */}
-                    <div className="flex justify-end">
 
 
-                      <button
-                        onClick={() => removeItem(item)}
-                        className="text-red-500 hover:text-red-700 text-sm font-medium flex items-center gap-1"
-                      >
-                        <Trash2 size={14} />
-                        Remove
-                      </button>
-                    </div>
-
-                  </div>
+              <div
+                key={item?.id || index}
+                className="flex  transition py-1 px-2 pb-0  border-t  border-gray-300 "
+              >
+                {/* Image */}
+                <div className="w-20 h-20 shrink-0 bg-gray-100 rounded-xl flex items-center justify-center">
+                  <img
+                    src={item?.image}
+                    alt={item?.title}
+                    className="w-full h-full object-contain p-2"
+                  />
                 </div>
-              
+
+                {/* Right Side */}
+                <div className="flex flex-col flex-1 justify-between">
+
+                  {/* Top Section */}
+                  <div className="flex justify-between items-start gap-4">
+
+                    {/* Title + small info */}
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-800 text-base leading-snug">
+                        {item?.title}
+                      </h4>
+
+                      <p className="text-gray-500 text-sm mt-1">
+                        {item?.quantity} pcs
+                      </p>
+
+                    </div>
+
+                    {/* Qty + Price */}
+                    <div className="flex flex-col items-end gap-2">
+
+                      {/* Quantity */}
+                      <div className="flex items-center bg-green-600 text-white rounded-lg overflow-hidden">
+                        <button
+                          onClick={() => decreaseQty(item?.id)}
+                          className="1 text-sm px-3  py-1 font-bold"
+                        >
+                          −
+                        </button>
+
+                        <span className="text-xs py-1">
+                          {item?.quantity}
+                        </span>
+
+                        <button
+                          onClick={() => increaseQty(item?.id)}
+                          className="text-sm px-3  py-1 font-bold"
+                        >
+                          +
+                        </button>
+                      </div>
+
+
+                      {/* Price */}
+                      <div className="flex gap-1 items-center">
+                        <p className="text-gray-800 line-through text-xs">
+                          $ {Number((item?.price + 50).toFixed(2))}
+                        </p>
+                        <p className="text-gray-800 font-semibold text-sm">
+                          ${item?.price}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom Remove */}
+                  <div className="flex justify-end">
+
+
+                    <button
+                      onClick={() => removeItem(item)}
+                      className="text-red-500 hover:text-red-700 text-sm font-medium flex items-center gap-1"
+                    >
+                      <Trash2 size={14} />
+                      Remove
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+
             );
           })}
         </div>
@@ -183,7 +185,7 @@ const CartPage = () => {
           </p>
           <p className="text-sm font-semibold mb-6">
             Pay INR: <span className="text-red-500">
-              ₹  <CountUp targetAmount={totalAmount*91} />
+              ₹  <CountUp targetAmount={totalAmount * 91} />
             </span>
           </p>
 
