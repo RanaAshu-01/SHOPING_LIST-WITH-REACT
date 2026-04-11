@@ -29,10 +29,10 @@ const LoginPage = () => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.(com|in|org|net)$/;
   const finalEmail = emailRegex.test(email);
 
-   const playSound = () => {
-          const audio = new Audio("/loginPopUp.mp3");
-          audio.play();
-        };
+  const playSound = () => {
+    const audio = new Audio("/loginPopUp.mp3");
+    audio.play();
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -77,6 +77,7 @@ const LoginPage = () => {
         setUser(userData);
 
         navigate("/");
+        window.location.reload();
 
         toast.success(
           <div className="flex items-center gap-2">

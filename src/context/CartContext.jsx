@@ -51,34 +51,41 @@ const CartProvider = ({ children }) => {
   }, [data, slidesData, autoScrollImages, products]);
 
 
-  const [cartItems, setCartItems] = useState(() => {
-    try {
-      if (user) {
-        const saved = localStorage.getItem("cartItems");
-        const parsed = saved ? JSON.parse(saved) : [];
-        return Array.isArray(parsed) ? parsed : [];
-      } else {
-        const saved = sessionStorage.getItem("cartItems");
-        const parsed = saved ? JSON.parse(saved) : [];
-        return Array.isArray(parsed) ? parsed : [];
-      }
-    } catch (error) {
-      return [];
-    }
-  });
 
+
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
+    try {
+      const storage = user ? localStorage : sessionStorage;
+      const saved = storage.getItem("cartItems");
+      const parsed = saved ? JSON.parse(saved) : [];
+
+      setCartItems(Array.isArray(parsed) ? parsed : []);
+    } catch {
+      setCartItems([]);
+    }
+  }, [user]);
+
+  useEffect(() => {
+    user ? sessionStorage.removeItem("cartItems") : ""
+  }, [user])
+
+  useEffect(() => {
+
+
+
     if (user) {
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
     } else {
-      sessionStorage.setItem("cartItems", JSON.stringify(cartItems))
+      sessionStorage.setItem("cartItems", JSON.stringify(cartItems));
     }
 
-  }, [cartItems]);
+  }, [cartItems, user]);
 
 
-  // Deals.................
+
+
 
   const handleDeals = (product) => {
 
