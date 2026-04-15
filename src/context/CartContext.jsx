@@ -4,8 +4,7 @@ import slidesData from "../data/slideData";
 import autoScrollImages from "../data/autoScrollImages.js";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { setCartItems } from "../redux/slices/cartItems.js";
-import { useDispatch } from "react-redux";
+
 
 
 export const CartContext = createContext();
@@ -24,8 +23,6 @@ const CartProvider = ({ children }) => {
   const navigate = useNavigate()
 
 
-
-  const dispatch = useDispatch()
 
   const playSound = () => {
     const audio = new Audio("/loginPopUp.mp3");
@@ -67,13 +64,9 @@ const CartProvider = ({ children }) => {
     }
   }, [user]);
 
-  useEffect(() => {
-    user ? sessionStorage.removeItem("cartItems") : ""
-  }, [user])
+  
 
   useEffect(() => {
-
-
 
     if (user) {
       localStorage.setItem("cartItems", JSON.stringify(cartItems));

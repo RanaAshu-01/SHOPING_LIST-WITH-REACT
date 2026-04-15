@@ -77,7 +77,7 @@ const LoginPage = () => {
         setUser(userData);
 
         navigate("/");
-        window.location.reload();
+       
 
         toast.success(
           <div className="flex items-center gap-2">
